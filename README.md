@@ -254,6 +254,7 @@
 ```
   - Think about the critical css path. Inject it in the `<head>` directly
   - Shrink your js/css bundles
+    - Split the libs bundle(s) (rarely changed) from the app bundle(s)
   - Load unnecessary modules after the initial rendering
   - Delay if not in the viewport at first sight
   - GZip your resources
