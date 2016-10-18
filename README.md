@@ -75,10 +75,9 @@
 
   - Use HTTPS
   - Isomorphic/Universal Javascript (prerendering page)
-  - Define the crawlers politic
+  - Define the crawlers politic. Define the file robots.txt, or you can add a meta:
 ```
 <meta name="robots" content="index,follow" />
-/robots.txt
 ```
 
 ## Care about communication ?
