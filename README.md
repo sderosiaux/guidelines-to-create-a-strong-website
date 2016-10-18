@@ -26,6 +26,12 @@
         integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"
         crossorigin="anonymous"></script>
 ```
+  - Protect again exploits
+    - CSRF https://en.wikipedia.org/wiki/Cross-site_request_forgery
+    - XSS https://en.wikipedia.org/wiki/Cross-site_scripting
+    - Sql Injection https://en.wikipedia.org/wiki/SQL_injection
+  - Protect the servers against brutefores attacks (add some kind of ban politics)
+  - Use JSON Web Tokens https://jwt.io/ to talk to the server
 
 ## Care about social ?
 
@@ -306,6 +312,7 @@ ga('send', 'pageview');
 
 ## Care about misc ?
 
+  - If the website addscookies, for EU visitors, display a banner https://www.cookielaw.org/the-cookie-law/
   - Add Google notranslate to avoid Google to display the translation bar when you know it's not needed
 ```html
 <meta name="google" value="notranslate">  
