@@ -19,21 +19,70 @@
     - X-Download-Options
     - X-Permitted-Cross-Domain-Policies
     - Access-Control-Allow-Origin
+- Care about social ?
+ - Facebook https://developers.facebook.com/docs/reference/opengraph/ http://stackoverflow.com/questions/10836135/when-do-i-need-a-fbapp-id-or-fbadmins
+  ```
+	<meta property="fb:admins" content="USER_ID" />
+	<meta property="fb:app_id" content="123456789456489" />
+  ```
+  - Twitter Card
+  ```
+  <meta name="twitter:card" content="summary"/>
+	<meta name="twitter:title" content="{{ PAGE_NAME }}"/>
+	<meta name="twitter:description" content="{{ PAGE_DESCRIPTION }}"/>
+	<meta name="twitter:site" content="{{ TWITTER_WEBSITE_ACCOUNT }}"/>
+	<meta name="twitter:image" content="{{ PAGE_IMAGE_URL }}" />
+	<meta name="twitter:creator" content="{{ TWITTER_CREATOR_ACCOUNT }}"/>
+	<meta name="twitter:domain" content="mon.site.com"/>
+  ```
+  - Google Plus
 - Care about SEO ?
   - Use HTTPS
   - Isomorphic/Universal Javascript (prerendering page)
 - Care about communication ?
-  - OpenGraph
-  - Twitter Card
-  - Google Plus
+  - OpenGraph http://ogp.me/
+  ```
+  <meta property="og:locale" content="{{ LOCALE }}" />
+	<meta property="og:type" content="article" /> <!-- product... -->
+	<meta property="og:title" content="{{ PAGE_NAME }}" />
+	<meta property="og:description" content="{{ PAGE_DESCRIPTION }}" />
+	<meta property="og:image" content="{{ PAGE_IMAGE_URL }}" />
+	<meta property="og:url" content="{{ PAGE_CANONICAL_URL }}" />
+	<meta property="og:site_name" content="{{ APPLICATION_NAME }}" />	
+  <meta property="og:updated_time" content="2015-05-12T22:24:50+00:00" />
+  <meta property="article:publisher" content="{{ PUBLISHER }}" />
+	<meta property="article:author" content="{{ AUTHOR }}" />
+	<meta property="article:section" content="Technology" />
+	<meta property="article:published_time" content="2015-01-06T23:07:41+00:00" />
+	<meta property="article:modified_time" content="2015-05-12T22:24:50+00:00" />
+  ```
+  - Bing
+  ```
+  <meta name="geo.placename" content="United States" />
+	<meta name="geo.position" content="x;x" />
+	<meta name="geo.region" content="usa" />
+	<meta name="ICBM" content="x,x" />
+  ```
   - UTF8 content
   - Language
   - Sitemap
   - Favicons/Tiles (+ Apple/Windows variations)
-  - Really Simple Discovery
+  - Really Simple Discovery  http://en.wikipedia.org/wiki/Really_Simple_Discovery
+  ```
+  <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.example.com/xmlrpc.php?rsd" />
+  ```
   - WindowsLiveWriter
+  ```
+  <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.example.com/wlwmanifest.xml" />
+  ```
   - OpenSearch
+  ```
+  <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="...">
+  ```
   - JSON-LD
+  ```
+  <script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"WebSite","url":"https:\/\/...","name":"...","alternateName":"..."}</script>
+  ```
   - Subresource (high priority)
   - XFN (human relationships)
 - Care about accessibility (a11y) ?
@@ -43,6 +92,12 @@
   - Add viewport meta mobile compliant
 - Care about legacy ?
   - Add X-UA-Compatible 
+  - Add shims
+  ```
+  <!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+  ```
 - Care about performance ?
   - DNS Prefetch <link>
   - DNS+Handshake+TLS Preconnect <link>
