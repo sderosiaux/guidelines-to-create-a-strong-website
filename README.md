@@ -279,11 +279,20 @@
 ## Care about analytics ?
 
   - Google Webmaster
-```
+```html
 <meta name="google-site-verification" content="xyz">
 ```
-  - Google analytics
-
+  - Google analytics https://developers.google.com/analytics/devguides/collection/analyticsjs/
+```html
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-XXXXX-Y', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>  
+```
+  - You have a bunch of tags ? Use Google Tag Manager.
+ 
 ## Care about bugs ?
 
   - Monitor browser's JS errors, for instance with https://trackjs.com
