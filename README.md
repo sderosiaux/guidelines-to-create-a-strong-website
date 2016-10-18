@@ -50,10 +50,14 @@
   - Prerender <link>
   - Think about the critical css path
   - Shrink your js/css bundles
-  - GZip
+  - Load unnecessary modules after the initial rendering
+  - Delay if not in the viewport at first sight
+  - GZip your resources
   - Optimize your images and your SVGs https://jakearchibald.github.io/svgomg/
 - Care about analytics ?
   - Google Webmaster
   - Google analytics
+- Care about bugs ?
+  - Monitor browser's JS errors, for instance with https://trackjs.com
 - Care about misc ?
   - Google notranslate
