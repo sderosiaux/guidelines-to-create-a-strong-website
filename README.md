@@ -1,19 +1,19 @@
 # making-a-website
 
-[Care about security ?](#care-about-security-)
-[Care about social ?](#care-about-social-)
-[Care about SEO ?](#care-about-seo-)
-[Care about communication ?](#care-about-communication-)
-[Care about Apple ?](#care-about-apple-)
-[Care about accessibility (a11y) ?](#care-about-accessibility-a11y-)
-[Care about style ?](#care-about-style-)
-[Care about legacy ?](#care-about-legacy-)
-[Care about performance ?](#care-about-performance-)
-[Care about mobile ?](#care-about-mobile-)
-[Care about offline ?](#care-about-offline-)
-[Care about analytics ?](#care-about-analytics-)
-[Care about bugs ?](#care-about-bugs-)
-[Care about misc ?](#care-about-misc-)
+- [Care about security ?](#care-about-security-)
+- [Care about social ?](#care-about-social-)
+- [Care about SEO ?](#care-about-seo-)
+- [Care about communication ?](#care-about-communication-)
+- [Care about Apple ?](#care-about-apple-)
+- [Care about accessibility (a11y) ?](#care-about-accessibility-a11y-)
+- [Care about style ?](#care-about-style-)
+- [Care about legacy ?](#care-about-legacy-)
+- [Care about performance ?](#care-about-performance-)
+- [Care about mobile ?](#care-about-mobile-)
+- [Care about offline ?](#care-about-offline-)
+- [Care about analytics ?](#care-about-analytics-)
+- [Care about bugs ?](#care-about-bugs-)
+- [Care about misc ?](#care-about-misc-)
 
 ## Care about security ?
 
