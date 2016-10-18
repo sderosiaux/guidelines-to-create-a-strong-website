@@ -1,8 +1,7 @@
 # making-a-website
 
---
+## Care about security ?
 
-- Care about security ?
   - Use HTTPS (add a letsencrypt certificate, renew every 3 months automatically)
     - get A+ on https://www.ssllabs.com/ssltest/index.html
     - check more with https://certlogik.com/ssl-checker/
@@ -22,9 +21,8 @@
     - X-Permitted-Cross-Domain-Policies
     - Access-Control-Allow-Origin
 
---
+## Care about social ?
 
-- Care about social ?
  - Facebook https://developers.facebook.com/docs/reference/opengraph/ http://stackoverflow.com/questions/10836135/when-do-i-need-a-fbapp-id-or-fbadmins
   ```html
 <meta property="fb:admins" content="USER_ID" />
@@ -42,15 +40,13 @@
   ```
   - Google Plus
 
---
+## Care about SEO ?
 
-- Care about SEO ?
   - Use HTTPS
   - Isomorphic/Universal Javascript (prerendering page)
 
---
+## Care about communication ?
 
-- Care about communication ?
   - OpenGraph http://ogp.me/
   ```html
 <meta property="og:locale" content="{{ LOCALE }}" />
@@ -97,20 +93,17 @@
   - Subresource (high priority)
   - XFN (human relationships)
 
---
+## Care about accessibility (a11y) ?
 
-- Care about accessibility (a11y) ?
   - Audit your website: https://github.com/addyosmani/a11y
   - Use role="xxx"
 
---
+## Care about style ?
 
-- Care about style ?
   - Add viewport meta mobile compliant
 
---
+## Care about legacy ?
 
-- Care about legacy ?
   - Add X-UA-Compatible 
   - Add shims
   ```html
@@ -119,9 +112,8 @@
 <![endif]-->
   ```
 
---
+## Care about performance ?
 
-- Care about performance ?
   - DNS Prefetch <link>
   - DNS+Handshake+TLS Preconnect <link>
   - Resource Prefetch (low priority)
@@ -133,18 +125,15 @@
   - GZip your resources
   - Optimize your images and your SVGs https://jakearchibald.github.io/svgomg/
 
---
+## Care about analytics ?
 
-- Care about analytics ?
   - Google Webmaster
   - Google analytics
 
---
+## Care about bugs ?
 
-- Care about bugs ?
   - Monitor browser's JS errors, for instance with https://trackjs.com
 
---
+## Care about misc ?
 
-- Care about misc ?
   - Google notranslate
