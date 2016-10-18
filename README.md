@@ -196,6 +196,7 @@
 
   - Audit your website: https://github.com/addyosmani/a11y
   - Use role="xxx"
+  - Use aria-xxx
 
 ## Care about style ?
 
