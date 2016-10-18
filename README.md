@@ -1,5 +1,7 @@
 # making-a-website
 
+--
+
 - Care about security ?
   - Use HTTPS (add a letsencrypt certificate, renew every 3 months automatically)
     - get A+ on https://www.ssllabs.com/ssltest/index.html
@@ -19,6 +21,9 @@
     - X-Download-Options
     - X-Permitted-Cross-Domain-Policies
     - Access-Control-Allow-Origin
+
+--
+
 - Care about social ?
  - Facebook https://developers.facebook.com/docs/reference/opengraph/ http://stackoverflow.com/questions/10836135/when-do-i-need-a-fbapp-id-or-fbadmins
   ```html
@@ -36,9 +41,15 @@
 <meta name="twitter:domain" content="mon.site.com"/>
   ```
   - Google Plus
+
+--
+
 - Care about SEO ?
   - Use HTTPS
   - Isomorphic/Universal Javascript (prerendering page)
+
+--
+
 - Care about communication ?
   - OpenGraph http://ogp.me/
   ```html
@@ -85,11 +96,20 @@
   ```
   - Subresource (high priority)
   - XFN (human relationships)
+
+--
+
 - Care about accessibility (a11y) ?
   - Audit your website: https://github.com/addyosmani/a11y
   - Use role="xxx"
+
+--
+
 - Care about style ?
   - Add viewport meta mobile compliant
+
+--
+
 - Care about legacy ?
   - Add X-UA-Compatible 
   - Add shims
@@ -98,6 +118,9 @@
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
   ```
+
+--
+
 - Care about performance ?
   - DNS Prefetch <link>
   - DNS+Handshake+TLS Preconnect <link>
@@ -109,10 +132,19 @@
   - Delay if not in the viewport at first sight
   - GZip your resources
   - Optimize your images and your SVGs https://jakearchibald.github.io/svgomg/
+
+--
+
 - Care about analytics ?
   - Google Webmaster
   - Google analytics
+
+--
+
 - Care about bugs ?
   - Monitor browser's JS errors, for instance with https://trackjs.com
+
+--
+
 - Care about misc ?
   - Google notranslate
