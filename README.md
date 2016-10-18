@@ -254,7 +254,7 @@
 
 ## Care about mobile ?
 
-	- Add a manifest to know how to display it on the home screen https://developer.mozilla.org/en-US/docs/Web/Manifest
+  - Add a manifest to know how to display it on the home screen https://developer.mozilla.org/en-US/docs/Web/Manifest
 ```html
 <link rel="manifest" href="/manifest.json">
 ```
@@ -267,7 +267,7 @@
 	"background_color": "#fff",
 	"theme_color": "#0379C4",
 	"description": "The official website and documentation for ...",
-	"icons": [ ... ]
+	"icons": [ { } ]
 }
 ```
 
