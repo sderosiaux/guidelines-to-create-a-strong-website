@@ -74,6 +74,33 @@
   - Language
   - Sitemap
   - Favicons/Tiles (+ Apple/Windows variations)
+```html
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="fluid-icon" href="fluidicon.png" title="..."> <!-- ? -->
+
+<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+
+<!-- Not sure if still used. Used if og:image is unspecified, to display an image when sharing -->
+<link rel="image_src" href="{{ PAGE_IMAGE_URL }}">
+
+<!-- Windows -->
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+```
   - Really Simple Discovery  http://en.wikipedia.org/wiki/Really_Simple_Discovery
 ```html
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.example.com/xmlrpc.php?rsd" />
@@ -124,6 +151,14 @@
   - Delay if not in the viewport at first sight
   - GZip your resources
   - Optimize your images and your SVGs https://jakearchibald.github.io/svgomg/
+
+## Care about offline ?
+
+	- Add a manifest
+```html
+<link rel="manifest" href="/manifest.json">
+```
+  - Add a service worker and cache resources and responses
 
 ## Care about analytics ?
 
