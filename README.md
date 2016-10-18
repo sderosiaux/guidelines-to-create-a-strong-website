@@ -126,7 +126,7 @@
 ```html
 <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ SITEMAP_URL }}" />
 ```
-  - Favicons/Tiles (+ Apple/Windows variations)
+  - Favicons/Tiles (+ Apple/Windows variations) 
 ```html
 <!-- The classic one -->
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
@@ -134,7 +134,7 @@
 <!-- Used by http://fluidapp.com/ (website to native app on Mac) -->
 <link rel="fluid-icon" href="fluidicon.png" title="...">
 
-<!-- Apple formats -->
+<!-- Apple formats https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html -->
 <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -181,6 +181,15 @@
   - XFN (human relationships) http://microformats.org/wiki/rel-profile
 ```html
 <link rel="profile" href="http://gmpg.org/xfn/11" />
+```
+
+## Care about Apple ?
+
+  - Apple has some options to customize the web app appearance https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html
+```html
+<link rel="apple-touch-startup-image" href="/startup.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
 ```
 
 ## Care about accessibility (a11y) ?
