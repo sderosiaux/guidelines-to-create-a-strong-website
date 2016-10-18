@@ -27,13 +27,28 @@
   - UTF8 content
   - Language
   - Sitemap
-  - Viewport
   - Favicons/Tiles (+ Apple/Windows variations)
   - Really Simple Discovery
   - WindowsLiveWriter
   - OpenSearch
   - JSON-LD
-  - DNS Prefetch
-  - DNS+Handshake+TLS Preconnect
-  - Resource Prefetch (low priority)
   - Subresource (high priority)
+  - XFN (human relationships)
+- Care about accessibility (a11y) ?
+  - Audit your website: https://github.com/addyosmani/a11y
+  - Use role="xxx"
+- Care about style ?
+  - Add viewport meta mobile compliant
+- Care about legacy ?
+  - Add X-UA-Compatible 
+- Care about performance ?
+  - DNS Prefetch <link>
+  - DNS+Handshake+TLS Preconnect <link>
+  - Resource Prefetch (low priority)
+  - Prerender <link>
+- Care about security ?
+- Care about analytics ?
+  - Google Webmaster
+  - Google analytics
+- Care about misc ?
+  - Google notranslate
