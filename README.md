@@ -2,6 +2,7 @@
 
 - Use HTTPS (add a letsencrypt certificate, renew every 3 months automatically)
   - get A+ on https://www.ssllabs.com/ssltest/index.html
+  - check more with https://certlogik.com/ssl-checker/
 - Add all security headers
   - get A+ on [securityheaders.io](securityheaders.io)
   - Content-Security-Policy
@@ -17,3 +18,22 @@
   - X-Download-Options
   - X-Permitted-Cross-Domain-Policies
   - Access-Control-Allow-Origin
+- Care about SEO ?
+  - Isomorphic/Universal Javascript (prerendering page)
+- Care about communication ?
+  - OpenGraph
+  - Twitter Card
+  - Google Plus
+  - UTF8 content
+  - Language
+  - Sitemap
+  - Viewport
+  - Favicons/Tiles (+ Apple/Windows variations)
+  - Really Simple Discovery
+  - WindowsLiveWriter
+  - OpenSearch
+  - JSON-LD
+  - DNS Prefetch
+  - DNS+Handshake+TLS Preconnect
+  - Resource Prefetch (low priority)
+  - Subresource (high priority)
