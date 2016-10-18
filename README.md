@@ -50,6 +50,11 @@
 
   - Use HTTPS
   - Isomorphic/Universal Javascript (prerendering page)
+  - Define the crawlers politic
+```
+<meta name="robots" content="index,follow" />
+/robots.txt
+```
 
 ## Care about communication ?
 
@@ -80,16 +85,47 @@
 ```html
 <link rel="canonical" href="article.html">
 ```
-  - UTF8 content
+  - Define it's UTF8
 ```html
 <meta charset="utf-8">
 ```  
+   - Define the content type
+```html
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+```
   - Language
 ```html
 <html lang="en">
 <meta http-equiv="Content-Language" content="en">
+<meta name="language" content="{{ LANG }}" /><!-- Old -->
 ```
-  - Sitemap
+  - Provide some info the browsers/crawlers can use to describe your app (if web app)
+```html
+<meta name="application-name" content="{{ APPLICATION_NAME }}">
+<meta name="description" content="{{ PAGE_DESCRIPTION }}">
+<meta name="keywords" content="{{ PAGE_KEYWORD }}" />
+```
+  - Define a pingback route to know how is linking to you http://wordpress.stackexchange.com/questions/116079/what-is-rel-pingback-and-what-is-the-use-of-this-in-my-website
+```html
+<link rel="pingback" href="http://www.example.com/xmlrpc.php" />
+```
+  - You can put some RSS
+```html
+<link rel="alternate" type="application/rss+xml" href="http://www.example.com/rss.xml" />
+ ```
+  - Prev/Next pages if you are in a listing
+```html
+<link rel="prev" title="..." href=".../page/1" />
+<link rel="next" title="..." href=".../page/3" />
+```
+  - Define the shortlink of the pages
+```html
+<link rel="shortlink" type="text/html" href="http://example.com/Ad1ca9">
+```
+  - Define the sitemap of the website
+```html
+<link rel="sitemap" type="application/xml" title="Sitemap" href="{{ SITEMAP_URL }}" />
+```
   - Favicons/Tiles (+ Apple/Windows variations)
 ```html
 <!-- The classic one -->
@@ -190,7 +226,7 @@
 
 ## Care about mobile ?
 
-	- Add a manifest to know how to display it on the home screen
+	- Add a manifest to know how to display it on the home screen https://developer.mozilla.org/en-US/docs/Web/Manifest
 ```html
 <link rel="manifest" href="/manifest.json">
 ```
