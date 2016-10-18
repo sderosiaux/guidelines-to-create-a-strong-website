@@ -192,14 +192,14 @@
 ```
 ```json
 {
-	name: "example.com",
-	short_name: "EXX",
-	start_url: "/",
-	display: "standalone",
-	background_color: "#fff",
-	theme_color: "#0379C4",
-	description: "The official website and documentation for ...",
-	icons: [ ... ]
+	"name": "example.com",
+	"short_name": "EXX",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#fff",
+	"theme_color": "#0379C4",
+	"description": "The official website and documentation for ...",
+	"icons": [ ... ]
 }
 ```
   - Add a service worker and cache resources and responses
