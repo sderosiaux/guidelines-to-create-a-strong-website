@@ -1,24 +1,26 @@
 # making-a-website
 
-- Use HTTPS (add a letsencrypt certificate, renew every 3 months automatically)
-  - get A+ on https://www.ssllabs.com/ssltest/index.html
-  - check more with https://certlogik.com/ssl-checker/
-- Add all security headers
-  - get A+ on [securityheaders.io](securityheaders.io)
-  - Content-Security-Policy
-  - Content-Security-Policy-Report-Only
-  - X-Webkit-CSP
-  - X-Content-Security-Policy
-  - Public-Key-Pins
-  - Public-Key-Pins-Report-Only
-  - Strict-Transport-Security
-  - X-Content-Type-Options
-  - X-Frame-Options
-  - X-Xss-Protection
-  - X-Download-Options
-  - X-Permitted-Cross-Domain-Policies
-  - Access-Control-Allow-Origin
+- Care about security ?
+  - Use HTTPS (add a letsencrypt certificate, renew every 3 months automatically)
+    - get A+ on https://www.ssllabs.com/ssltest/index.html
+    - check more with https://certlogik.com/ssl-checker/
+  - Add all security headers
+    - get A+ on [securityheaders.io](securityheaders.io)
+    - Content-Security-Policy
+    - Content-Security-Policy-Report-Only
+    - X-Webkit-CSP
+    - X-Content-Security-Policy
+    - Public-Key-Pins
+    - Public-Key-Pins-Report-Only
+    - Strict-Transport-Security
+    - X-Content-Type-Options
+    - X-Frame-Options
+    - X-Xss-Protection
+    - X-Download-Options
+    - X-Permitted-Cross-Domain-Policies
+    - Access-Control-Allow-Origin
 - Care about SEO ?
+  - Use HTTPS
   - Isomorphic/Universal Javascript (prerendering page)
 - Care about communication ?
   - OpenGraph
@@ -46,7 +48,10 @@
   - DNS+Handshake+TLS Preconnect <link>
   - Resource Prefetch (low priority)
   - Prerender <link>
-- Care about security ?
+  - Think about the critical css path
+  - Shrink your js/css bundles
+  - GZip
+  - Optimize your images and your SVGs https://jakearchibald.github.io/svgomg/
 - Care about analytics ?
   - Google Webmaster
   - Google analytics
