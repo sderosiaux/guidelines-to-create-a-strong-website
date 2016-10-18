@@ -75,9 +75,13 @@
   - Sitemap
   - Favicons/Tiles (+ Apple/Windows variations)
 ```html
+<!-- The classic one -->
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-<link rel="fluid-icon" href="fluidicon.png" title="..."> <!-- ? -->
 
+<!-- Used by http://fluidapp.com/ (website to native app on Mac) -->
+<link rel="fluid-icon" href="fluidicon.png" title="...">
+
+<!-- Apple formats -->
 <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
 <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -88,12 +92,16 @@
 <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
 
-<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<!-- For Safari pinned tabs -->
+<link rel="mask-icon" href="logo.svg" color="orange">
+
+<!-- Recommanded is 192x192 only -->
+<link rel="icon" type="image/png" sizes="192x192"  href="/icon-192x192.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 
-<!-- Not sure if still used. Used if og:image is unspecified, to display an image when sharing -->
+<!-- Not sure if still used. App should used it if og:image is unspecified, to display an image when sharing -->
 <link rel="image_src" href="{{ PAGE_IMAGE_URL }}">
 
 <!-- Windows -->
@@ -128,6 +136,9 @@
 ## Care about style ?
 
   - Add viewport meta mobile compliant
+```html
+<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes, minimal-ui">
+```
 
 ## Care about legacy ?
 
