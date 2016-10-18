@@ -20,6 +20,12 @@
     - X-Download-Options
     - X-Permitted-Cross-Domain-Policies
     - Access-Control-Allow-Origin
+    - Add CRI (Subresource Integrity) to your resources https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
+```html
+<script src="framework.js"
+        integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"
+        crossorigin="anonymous"></script>
+```
 
 ## Care about social ?
 
@@ -71,7 +77,14 @@
 <meta name="ICBM" content="x,x" />
 ```
   - UTF8 content
+```html
+<meta charset="utf-8">
+```  
   - Language
+```html
+<html lang="en">
+<meta http-equiv="Content-Language" content="en">
+```
   - Sitemap
   - Favicons/Tiles (+ Apple/Windows variations)
 ```html
@@ -142,7 +155,10 @@
 
 ## Care about legacy ?
 
-  - Add X-UA-Compatible 
+  - Add X-UA-Compatible
+````html
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+```
   - Add shims
 ```html
 <!--[if lt IE 9]>
