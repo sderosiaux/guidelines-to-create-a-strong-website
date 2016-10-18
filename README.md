@@ -24,12 +24,12 @@
 ## Care about social ?
 
  - Facebook https://developers.facebook.com/docs/reference/opengraph/ http://stackoverflow.com/questions/10836135/when-do-i-need-a-fbapp-id-or-fbadmins
-  ```html
+```html
 <meta property="fb:admins" content="USER_ID" />
 <meta property="fb:app_id" content="123456789456489" />
-  ```
+```
   - Twitter Card
-  ```html
+```html
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="{{ PAGE_NAME }}"/>
 <meta name="twitter:description" content="{{ PAGE_DESCRIPTION }}"/>
@@ -37,7 +37,7 @@
 <meta name="twitter:image" content="{{ PAGE_IMAGE_URL }}" />
 <meta name="twitter:creator" content="{{ TWITTER_CREATOR_ACCOUNT }}"/>
 <meta name="twitter:domain" content="mon.site.com"/>
-  ```
+```
   - Google Plus
 
 ## Care about SEO ?
@@ -48,7 +48,7 @@
 ## Care about communication ?
 
   - OpenGraph http://ogp.me/
-  ```html
+```html
 <meta property="og:locale" content="{{ LOCALE }}" />
 <meta property="og:type" content="article" /> <!-- product... -->
 <meta property="og:title" content="{{ PAGE_NAME }}" />
@@ -62,34 +62,34 @@
 <meta property="article:section" content="Technology" />
 <meta property="article:published_time" content="2015-01-06T23:07:41+00:00" />
 <meta property="article:modified_time" content="2015-05-12T22:24:50+00:00" />
-  ```
+```
   - Bing
-  ```html
+```html
 <meta name="geo.placename" content="United States" />
 <meta name="geo.position" content="x;x" />
 <meta name="geo.region" content="usa" />
 <meta name="ICBM" content="x,x" />
-  ```
+```
   - UTF8 content
   - Language
   - Sitemap
   - Favicons/Tiles (+ Apple/Windows variations)
   - Really Simple Discovery  http://en.wikipedia.org/wiki/Really_Simple_Discovery
-  ```html
+```html
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://www.example.com/xmlrpc.php?rsd" />
-  ```
+```
   - WindowsLiveWriter
-  ```html
+```html
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.example.com/wlwmanifest.xml" />
-  ```
+```
   - OpenSearch
-  ```html
+```html
 <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="...">
-  ```
+```
   - JSON-LD
-  ```html
+```html
 <script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"WebSite","url":"https:\/\/...","name":"...","alternateName":"..."}</script>
-  ```
+```
   - Subresource (high priority)
   - XFN (human relationships)
 
@@ -106,11 +106,11 @@
 
   - Add X-UA-Compatible 
   - Add shims
-  ```html
+```html
 <!--[if lt IE 9]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-  ```
+```
 
 ## Care about performance ?
 
