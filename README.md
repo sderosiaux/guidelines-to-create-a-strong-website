@@ -45,6 +45,10 @@
 <meta name="twitter:domain" content="mon.site.com"/>
 ```
   - Google Plus
+  - Add the Sharing, Like, +1 buttons
+    - Facebook https://developers.facebook.com/docs/plugins
+    - Twitter https://dev.twitter.com/web/tweet-button
+    - Google Plus https://developers.google.com/+/web/share/
 
 ## Care about SEO ?
 
@@ -190,6 +194,7 @@
 <link rel="apple-touch-startup-image" href="/startup.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
 ```
 
 ## Care about accessibility (a11y) ?
