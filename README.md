@@ -183,10 +183,14 @@
   - GZip your resources
   - Optimize your images and your SVGs https://jakearchibald.github.io/svgomg/
   - Use `async` and `defer` on your scripts when it's possible
+  - Only import the necessary font families and weights
+```html
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300">
+```
 
-## Care about offline ?
+## Care about mobile ?
 
-	- Add a manifest
+	- Add a manifest to know how to display it on the home screen
 ```html
 <link rel="manifest" href="/manifest.json">
 ```
@@ -202,11 +206,18 @@
 	"icons": [ ... ]
 }
 ```
+
+## Care about offline ?
+
   - Add a service worker and cache resources and responses
+  - (Add a AppCache manifest. Deprecated)
 
 ## Care about analytics ?
 
   - Google Webmaster
+```
+<meta name="google-site-verification" content="xyz">
+```
   - Google analytics
 
 ## Care about bugs ?
@@ -216,3 +227,6 @@
 ## Care about misc ?
 
   - Add Google notranslate to avoid Google to display the translation bar when you know it's not needed
+```html
+<meta name="google" value="notranslate">  
+```
