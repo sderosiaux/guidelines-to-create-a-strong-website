@@ -1,7 +1,9 @@
 # making-a-website
 
 - Use HTTPS (add a letsencrypt certificate, renew every 3 months automatically)
-- Add all security headers. Check with : [securityheaders.io](securityheaders.io)
+  - get A+ on https://www.ssllabs.com/ssltest/index.html
+- Add all security headers
+  - get A+ on [securityheaders.io](securityheaders.io)
   - Content-Security-Policy
   - Content-Security-Policy-Report-Only
   - X-Webkit-CSP
