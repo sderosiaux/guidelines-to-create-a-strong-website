@@ -257,6 +257,7 @@
 ```html
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300">
 ```
+  - Use a "HTTP Web Accelerator" like Varnish to cache static resources server side and serve them faster
 
 ## Care about mobile ?
 
