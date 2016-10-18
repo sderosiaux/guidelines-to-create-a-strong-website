@@ -76,6 +76,10 @@
 <meta name="geo.region" content="usa" />
 <meta name="ICBM" content="x,x" />
 ```
+  - Define a canonical URL for every page (to avoid to reference twice the same page)
+```html
+<link rel="canonical" href="article.html">
+```
   - UTF8 content
 ```html
 <meta charset="utf-8">
@@ -172,7 +176,7 @@
   - DNS+Handshake+TLS Preconnect <link>
   - Resource Prefetch (low priority)
   - Prerender <link>
-  - Think about the critical css path
+  - Think about the critical css path. Inject it in the `<head>` directly
   - Shrink your js/css bundles
   - Load unnecessary modules after the initial rendering
   - Delay if not in the viewport at first sight
