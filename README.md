@@ -182,12 +182,25 @@
   - Delay if not in the viewport at first sight
   - GZip your resources
   - Optimize your images and your SVGs https://jakearchibald.github.io/svgomg/
+  - Use `async` and `defer` on your scripts when it's possible
 
 ## Care about offline ?
 
 	- Add a manifest
 ```html
 <link rel="manifest" href="/manifest.json">
+```
+```json
+{
+	name: "example.com",
+	short_name: "EXX",
+	start_url: "/",
+	display: "standalone",
+	background_color: "#fff",
+	theme_color: "#0379C4",
+	description: "The official website and documentation for ...",
+	icons: [ ... ]
+}
 ```
   - Add a service worker and cache resources and responses
 
@@ -202,4 +215,4 @@
 
 ## Care about misc ?
 
-  - Google notranslate
+  - Add Google notranslate to avoid Google to display the translation bar when you know it's not needed
