@@ -178,8 +178,10 @@
 ```html
 <script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"WebSite","url":"https:\/\/...","name":"...","alternateName":"..."}</script>
 ```
-  - Subresource (high priority)
-  - XFN (human relationships)
+  - XFN (human relationships) http://microformats.org/wiki/rel-profile
+```html
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+```
 
 ## Care about accessibility (a11y) ?
 
@@ -208,10 +210,27 @@
 
 ## Care about performance ?
 
-  - DNS Prefetch <link>
-  - DNS+Handshake+TLS Preconnect <link>
-  - Resource Prefetch (low priority)
-  - Prerender <link>
+  - DNS Prefetch to resolve DNS asap (for future pages)
+```html
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//themes.googleusercontent.com">
+```
+  - DNS+Handshake+TLS Preconnect. Better. DNS+TCP handshake + optional TLS negotiation. Use for the current page.
+```html
+<link rel="preconnect" href="//fonts.googleapis.com">  
+```
+  - Resource Prefetch (low priority). Download a resource right now (into cache) if we know it's going to be used later.
+```html
+<link rel="prefetch" href="image.png">
+```
+  - Subresource: Download directly (high priority, whereas prefetch is low priority) a resource that will be discovered later in the page (such as `<script>` at the end)
+```html
+<link rel="subresource" href="app.js">
+```
+  - Prerender. Fetch the whole content of another page (css, process js etc.). Useful when you know that the user will click on it for sure. It will take only a instant (everything will be already loaded!)
+```html
+<link rel="prerender" href="http://example.com/about">
+```
   - Think about the critical css path. Inject it in the `<head>` directly
   - Shrink your js/css bundles
   - Load unnecessary modules after the initial rendering
