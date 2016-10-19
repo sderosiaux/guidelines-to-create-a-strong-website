@@ -233,6 +233,8 @@ Let's try to be concise.
 <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes, minimal-ui">
 ```
   - Avoid FOUC (Flash Of Unstyled Content) https://en.wikipedia.org/wiki/Flash_of_unstyled_content
+  - Make it responsive using media queries and other css techniques
+  - Talk to a UI and UX designer
 
 ## Care about legacy ?
 
