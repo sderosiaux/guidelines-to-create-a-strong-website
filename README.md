@@ -1,5 +1,7 @@
 # Making a website (or a webapp)
 
+Let's try to be concise.
+
 - [Care about security ?](#care-about-security-)
 - [Care about social ?](#care-about-social-)
 - [Care about SEO ?](#care-about-seo-)
@@ -307,7 +309,7 @@
 
 ## Care about offline ?
 
-  - Add a service worker and cache resources and responses
+  - Add a service worker and cache resources and responses https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/
   - (Add a AppCache manifest. Deprecated)
 
 ## Care about analytics ?
