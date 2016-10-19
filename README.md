@@ -344,3 +344,5 @@ ga('send', 'pageview');
 ```html
 <meta name="google" value="notranslate">  
 ```
+  - If you can, try to make your website working without JS.
+
