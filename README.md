@@ -245,6 +245,7 @@
 
 ## Care about performance ?
 
+  - Use HTTP/2
   - DNS Prefetch to resolve DNS asap (for future pages)
 ```html
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
