@@ -327,7 +327,7 @@ ga('send', 'pageview');
 
 ## Care about misc ?
 
-  - If the website addscookies, for EU visitors, display a banner https://www.cookielaw.org/the-cookie-law/
+  - If the website sets cookies to an EU visitor, you must display a notice https://www.cookielaw.org/the-cookie-law/
   - Add Google notranslate to avoid Google to display the translation bar when you know it's not needed
 ```html
 <meta name="google" value="notranslate">  
