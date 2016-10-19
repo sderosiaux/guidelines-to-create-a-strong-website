@@ -271,9 +271,14 @@
     - Split the libs bundle(s) (rarely changed) from the app bundle(s)
   - Load unnecessary modules after the initial rendering
   - Delay if not in the viewport at first sight
+    - Load images lazily
+  - Use requestAnimationFrame to handle any animation (avoid setTimeout/setInterval) https://developers.google.com/web/fundamentals/performance/rendering/optimize-javascript-execution
+  - Use requestIdleCallback when you want to process something not time critical https://developers.google.com/web/updates/2015/08/using-requestidlecallback
+  - Avoir layout trashing (write/read DOM continuously). Batch. And simply let the frameworks (if available) update the DOM for you (with the Virtual DOM nowadays)
   - GZip your resources
   - Optimize your images and your SVGs https://jakearchibald.github.io/svgomg/
   - Use `async` and `defer` on your scripts when it's possible
+  - To do something before unloading the page, use the navigator beacon to not block the closing https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon
   - Only import the necessary font families and weights
 ```html
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300">
