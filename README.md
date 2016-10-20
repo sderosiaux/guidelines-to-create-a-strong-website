@@ -134,7 +134,7 @@ Let's try to be concise.
 <meta name="description" content="{{ PAGE_DESCRIPTION }}">
 <meta name="keywords" content="{{ PAGE_KEYWORD }}" />
 ```
-  - Define a pingback route to know how is linking to you http://wordpress.stackexchange.com/questions/116079/what-is-rel-pingback-and-what-is-the-use-of-this-in-my-website
+  - Define a pingback route to know who is linking to you http://wordpress.stackexchange.com/questions/116079/what-is-rel-pingback-and-what-is-the-use-of-this-in-my-website
 ```html
 <link rel="pingback" href="http://www.example.com/xmlrpc.php" />
 ```
