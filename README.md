@@ -1,5 +1,7 @@
 # Making a website (or a webapp)
 
+I've started to put everything I can think of to create a good website. Don't hesitate to PR. 
+
 Let's try to be concise.
 
 - [Care about security ?](#care-about-security-)
