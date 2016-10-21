@@ -295,6 +295,7 @@ Let's try to be concise.
   - For classic js third party libraries, use a cdn (unpkg, cdnjs, jsdelivr, maxcdn..)
   - Use a generic CDN for your resources like [Cloudflare](https://www.cloudflare.com/)
   - If you don't want an external CDN, install a "HTTP Web Accelerator" like Varnish to cache static resources server side and serve them faster
+  - Check your performances with https://testmysite.io/ 
 
 ## Care about mobile ?
 
@@ -339,7 +340,7 @@ ga('send', 'pageview');
  
 ## Care about bugs ?
 
-  - Monitor browser's JS errors, for instance with https://trackjs.com
+  - Monitor browser's JS errors, for instance with https://trackjs.com or https://sentry.io/
 
 ## Care about misc ?
 
