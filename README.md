@@ -25,7 +25,7 @@ Let's try to be concise.
     - get A+ on https://www.ssllabs.com/ssltest/index.html
     - check more with https://certlogik.com/ssl-checker/
   - Add all security headers
-    - get A+ on [securityheaders.io](securityheaders.io)
+    - get A+ on https://securityheaders.io/
     - Content-Security-Policy
     - Content-Security-Policy-Report-Only
     - X-Webkit-CSP
