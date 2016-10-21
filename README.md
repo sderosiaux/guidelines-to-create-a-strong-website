@@ -296,9 +296,10 @@ Let's try to be concise.
   - For classic js third party libraries, use a cdn (unpkg, cdnjs, jsdelivr, maxcdn..)
   - Use a generic CDN for your resources like [Cloudflare](https://www.cloudflare.com/)
   - If you don't want an external CDN, install a "HTTP Web Accelerator" like Varnish to cache static resources server side and serve them faster
-  - Check your performances with https://testmysite.io/ 
   - Use `rel="noopener"` for external links: `<a href="http://example.com" target="_blank" rel="noopener">`
-
+  - Check your performances with https://testmysite.io/ 
+  - Check your performances and best practices with Lighthouse: https://github.com/GoogleChrome/lighthouse (test if you app can be considered as "progressive")
+  
 ## Care about mobile ?
 
   - Add a manifest to know how to display it on the home screen https://developer.mozilla.org/en-US/docs/Web/Manifest
