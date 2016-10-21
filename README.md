@@ -52,6 +52,7 @@ Let's try to be concise.
   - Protect the servers against brutefores attacks (add some kind of ban politics)
   - Use JSON Web Tokens https://jwt.io/ to talk to the server
   - Protect against DDOS if you need to, for instance using [Cloudflare](https://www.cloudflare.com/)
+  - Use `rel="noopener"` for external links: `<a href="http://example.com" target="_blank" rel="noopener">`
 
 ## Care about social ?
 
@@ -296,6 +297,7 @@ Let's try to be concise.
   - Use a generic CDN for your resources like [Cloudflare](https://www.cloudflare.com/)
   - If you don't want an external CDN, install a "HTTP Web Accelerator" like Varnish to cache static resources server side and serve them faster
   - Check your performances with https://testmysite.io/ 
+  - Use `rel="noopener"` for external links: `<a href="http://example.com" target="_blank" rel="noopener">`
 
 ## Care about mobile ?
 
