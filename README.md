@@ -251,6 +251,9 @@ Let's try to be concise.
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 ```
+  - Add polyfills
+    - `fetch`: https://github.com/github/fetch
+    - `Promise`: https://github.com/stefanpenner/es6-promise 
 
 ## Care about performance ?
 
