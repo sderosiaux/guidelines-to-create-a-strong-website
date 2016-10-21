@@ -322,6 +322,7 @@ Let's try to be concise.
 ## Care about offline ?
 
   - Add a service worker and cache resources and responses https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/
+    - you can generate automatically some service-worker.js code using https://github.com/GoogleChrome/sw-precache
   - (Add a AppCache manifest. Deprecated)
 
 ## Care about analytics ?
