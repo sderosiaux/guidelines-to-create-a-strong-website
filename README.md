@@ -248,7 +248,7 @@ Let's try to be concise.
   - Add shims
 ```html
 <!--[if lt IE 9]>
-<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 <![endif]-->
 ```
   - Add polyfills
