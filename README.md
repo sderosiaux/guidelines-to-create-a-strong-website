@@ -53,6 +53,7 @@ Let's try to be concise.
   - Use JSON Web Tokens https://jwt.io/ to talk to the server
   - Protect against DDOS if you need to, for instance using [Cloudflare](https://www.cloudflare.com/)
   - Use `rel="noopener"` for external links: `<a href="http://example.com" target="_blank" rel="noopener">`
+  - Identify frauds before they happen with Smyte (a js tag to add) https://www.smyte.com/
 
 ## Care about social ?
 
@@ -344,6 +345,7 @@ ga('send', 'pageview');
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>  
 ```
+  - You an try Amplitude too https://amplitude.com/
   - You have a bunch of tags ? Use Google Tag Manager.
  
 ## Care about bugs ?
