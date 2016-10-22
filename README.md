@@ -251,9 +251,10 @@ Let's try to be concise.
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
 <![endif]-->
 ```
-  - Add polyfills
+  - Add polyfills (use cloudflare cdn to grab them)
     - `fetch`: https://github.com/github/fetch
     - `Promise`: https://github.com/stefanpenner/es6-promise 
+    - media queries: https://github.com/scottjehl/Respond
 
 ## Care about performance ?
 
