@@ -83,8 +83,12 @@ Let's try to be concise.
   - Use HTTPS
   - Isomorphic/Universal Javascript (prerendering page)
   - Define the crawlers politic. Define the file robots.txt, or you can add a meta:
-```
+```html
 <meta name="robots" content="index,follow" />
+```
+  - If you have a multilanguage website, use `hreflang` tag to indicate alternative versions. Check https://support.google.com/webmasters/answer/189077
+```html
+<link rel="alternate" hreflang="es" href="http://es.example.com/" />
 ```
 
 ## Care about communication ?
@@ -205,7 +209,7 @@ Let's try to be concise.
 ```html
 <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="...">
 ```
-  - JSON-LD
+  - JSON-LD aka Structured Data. It's a mandatory thing to add to your pages. The search engine will format its result according to that. Check https://developers.google.com/search/docs/guides/search-gallery to know what is possible and how to write them. 
 ```html
 <script type="application/ld+json">{"@context":"http:\/\/schema.org","@type":"WebSite","url":"https:\/\/...","name":"...","alternateName":"..."}</script>
 ```
@@ -352,6 +356,7 @@ ga('send', 'pageview');
 ## Care about bugs ?
 
   - Monitor browser's JS errors, for instance with https://trackjs.com or https://sentry.io/
+  - Check your Google Webmaster for crawl/sitemap/robots errors
 
 ## Care about misc ?
 
