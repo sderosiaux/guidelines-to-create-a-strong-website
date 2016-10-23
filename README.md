@@ -239,6 +239,7 @@ Let's try to be concise.
   - Avoid FOUC (Flash Of Unstyled Content) https://en.wikipedia.org/wiki/Flash_of_unstyled_content
   - Make it responsive using media queries and other css techniques
   - Talk to a UI and UX designer
+  - Avoid to use custom scrollbars plugins. People tends to not like them. There are often used to cancel the style of the ugly scrollbars in Windows unfortunately.
 
 ## Care about legacy ?
 
