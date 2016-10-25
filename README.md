@@ -46,8 +46,9 @@ Let's try to be concise.
         crossorigin="anonymous"></script>
 ```
   - Protect again exploits
-    - CSRF https://en.wikipedia.org/wiki/Cross-site_request_forgery
+    - CSRF/XSRF https://en.wikipedia.org/wiki/Cross-site_request_forgery
     - XSS https://en.wikipedia.org/wiki/Cross-site_scripting
+    - XSSI http://stackoverflow.com/questions/8028511/what-is-cross-site-script-inclusion-xssi
     - Sql Injection https://en.wikipedia.org/wiki/SQL_injection
   - Protect the servers against brutefores attacks (add some kind of ban politics)
   - Use JSON Web Tokens https://jwt.io/ to talk to the server
