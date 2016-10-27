@@ -117,7 +117,7 @@ Let's try to be concise.
 <meta name="geo.region" content="usa" />
 <meta name="ICBM" content="x,x" />
 ```
-  - Define a canonical URL for every page (to avoid to reference twice the same page)
+  - Define a canonical URL for every page (to avoid to reference twice the same page, for instance the mobile version and the desktop's)
 ```html
 <link rel="canonical" href="article.html">
 ```
