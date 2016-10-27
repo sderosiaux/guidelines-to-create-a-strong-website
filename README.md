@@ -231,7 +231,7 @@ Let's try to be concise.
 
 ## Care about accessibility (a11y) ?
 
-  - Audit your website: https://github.com/addyosmani/a11y
+  - Audit your website: https://github.com/addyosmani/a11y [![GitHub stars](https://img.shields.io/github/stars/addyosmani/a11y.svg?style=social&label=Star)](https://github.com/addyosmani/a11y)
   - Use role="xxx"
   - Use aria-xxx
 
@@ -259,9 +259,9 @@ Let's try to be concise.
 <![endif]-->
 ```
   - Add polyfills (use cloudflare cdn to grab them)
-    - `fetch`: https://github.com/github/fetch
-    - `Promise`: https://github.com/stefanpenner/es6-promise 
-    - media queries: https://github.com/scottjehl/Respond
+    - `fetch`: https://github.com/github/fetch [![GitHub stars](https://img.shields.io/github/stars/github/fetch.svg?style=social&label=Star)](https://github.com/github/fetch)
+    - `Promise`: https://github.com/stefanpenner/es6-promise [![GitHub stars](https://img.shields.io/github/stars/stefanpenner/es6-promise.svg?style=social&label=Star)](https://github.com/stefanpenner/es6-promise)
+    - media queries: https://github.com/scottjehl/Respond [![GitHub stars](https://img.shields.io/github/stars/scottjehl/Respond.svg?style=social&label=Star)](https://github.com/scottjehl/Respond)
     - all es6 and es7 features: https://github.com/zloirock/core-js [![GitHub stars](https://img.shields.io/github/stars/zloirock/core-js.svg?style=social&label=Star)](https://github.com/zloirock/core-js)
 
 ## Care about performance ?
@@ -312,7 +312,7 @@ Let's try to be concise.
   - If you don't want an external CDN, install a "HTTP Web Accelerator" like Varnish to cache static resources server side and serve them faster
   - Use `rel="noopener"` for external links: `<a href="http://example.com" target="_blank" rel="noopener">`
   - Check your performances with https://testmysite.io/ 
-  - Check your performances and best practices with Lighthouse: https://github.com/GoogleChrome/lighthouse (test if you app can be considered as "progressive")
+  - Check your performances and best practices with Lighthouse: https://github.com/GoogleChrome/lighthouse [![GitHub stars](https://img.shields.io/github/stars/GoogleChrome/lighthouse.svg?style=social&label=Star)](https://github.com/GoogleChrome/lighthouse) (test if you app can be considered as "progressive")
   
 ## Care about mobile ?
 
