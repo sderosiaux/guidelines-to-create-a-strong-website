@@ -262,6 +262,7 @@ Let's try to be concise.
     - `fetch`: https://github.com/github/fetch
     - `Promise`: https://github.com/stefanpenner/es6-promise 
     - media queries: https://github.com/scottjehl/Respond
+    - all es6 and es7 features: https://github.com/zloirock/core-js [![GitHub stars](https://img.shields.io/github/stars/zloirock/core-js.svg?style=social&label=Star)](https://github.com/zloirock/core-js)
 
 ## Care about performance ?
 
