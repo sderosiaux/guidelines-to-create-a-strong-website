@@ -263,6 +263,7 @@ Let's try to be concise.
     - `Promise`: https://github.com/stefanpenner/es6-promise [![GitHub stars](https://img.shields.io/github/stars/stefanpenner/es6-promise.svg?style=social&label=Star)](https://github.com/stefanpenner/es6-promise)
     - media queries: https://github.com/scottjehl/Respond [![GitHub stars](https://img.shields.io/github/stars/scottjehl/Respond.svg?style=social&label=Star)](https://github.com/scottjehl/Respond)
     - all es6 and es7 features: https://github.com/zloirock/core-js [![GitHub stars](https://img.shields.io/github/stars/zloirock/core-js.svg?style=social&label=Star)](https://github.com/zloirock/core-js)
+    - Web Animations API (`document.querySelector('.pulse').animate({...})`): https://github.com/web-animations/web-animations-js [![GitHub stars](https://img.shields.io/github/stars/web-animations/web-animations-js.svg?style=social&label=Star)](https://github.com/web-animations/web-animations-js)
 
 ## Care about performance ?
 
