@@ -55,6 +55,7 @@ Let's try to be concise.
   - Protect against DDOS if you need to, for instance using [Cloudflare](https://www.cloudflare.com/)
   - Use `rel="noopener"` for external links: `<a href="http://example.com" target="_blank" rel="noopener">`
   - Identify frauds before they happen with Smyte (a js tag to add) https://www.smyte.com/
+  - For registration pages, put a captcha. https://www.google.com/recaptcha/intro/index.html
 
 ## Care about social ?
 
@@ -366,6 +367,7 @@ ga('send', 'pageview');
 ## Care about misc ?
 
   - If the website sets cookies to an EU visitor, you must display a notice https://www.cookielaw.org/the-cookie-law/
+  - Add a legal mentions page
   - Add Google notranslate to avoid Google to display the translation bar when you know it's not needed
 ```html
 <meta name="google" value="notranslate">  
