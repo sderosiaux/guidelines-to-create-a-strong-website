@@ -223,6 +223,13 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
 ```html
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 ```
+  - Dublin Core Metadata (not sure if used?) https://en.wikipedia.org/wiki/Dublin_Core
+````html
+<meta name="DC.Format" content="text/html">
+<meta name="DC.Language" content="en" >
+<meta name="DC.Type" content="Text" >
+<meta name="DC.Title" content="My revolution" >
+```
 
 ## Care about Apple ?
 
