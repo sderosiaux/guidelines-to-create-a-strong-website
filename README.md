@@ -1,4 +1,4 @@
-# Making a website (or a webapp)
+# How to make a good website
 
 I've started to put everything I can think of to create a good website. Don't hesitate to PR. 
 
