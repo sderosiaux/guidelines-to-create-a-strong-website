@@ -26,10 +26,10 @@ Let's try to be concise.
     - check more with https://certlogik.com/ssl-checker/
   - Add all security headers
     - get A+ on https://securityheaders.io/
-    - Content-Security-Policy
+    - Content-Security-Policy: define which hosts are allowed for the browser to download/send from/to (scripts, images, iframes, forms..). `Content-Security-Policy: script-src 'self' https://apis.google.com; img-src 'self'`
     - Content-Security-Policy-Report-Only
-    - X-Webkit-CSP
-    - X-Content-Security-Policy
+    - (deprecated X-Webkit-CSP: old Chrome)
+    - (deprecated X-Content-Security-Policy: IE10, FF<24)
     - Public-Key-Pins
     - Public-Key-Pins-Report-Only
     - Strict-Transport-Security
