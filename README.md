@@ -12,6 +12,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
 - [Care about communication ?](#care-about-communication-)
 - [Care about Apple ?](#care-about-apple-)
 - [Care about accessibility (a11y) ?](#care-about-accessibility-a11y-)
+- [Care about privacy ?](#care-about-privacy-)
 - [Care about style ?](#care-about-style-)
 - [Care about legacy ?](#care-about-legacy-)
 - [Care about performance ?](#care-about-performance-)
@@ -238,6 +239,10 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
   - Audit your website: https://github.com/addyosmani/a11y [![GitHub stars](https://img.shields.io/github/stars/addyosmani/a11y.svg?style=social&label=Star)](https://github.com/addyosmani/a11y)
   - Use role="xxx"
   - Use aria-xxx
+  
+## Care about privacy ?
+
+  - Add Do Not Track (DNT) header: opt-out of third-party tracking for purposes including behavioral advertising https://en.wikipedia.org/wiki/Do_Not_Track `DNT: 1`
 
 ## Care about style ?
 
