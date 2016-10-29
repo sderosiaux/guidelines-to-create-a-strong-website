@@ -26,7 +26,7 @@ Let's try to be concise.
     - check more with https://certlogik.com/ssl-checker/
   - Add all security headers
     - get A+ on https://securityheaders.io/
-    - Content-Security-Policy: define which hosts are allowed for the browser to download/send from/to (scripts, images, iframes, forms..). `Content-Security-Policy: script-src 'self' https://apis.google.com; img-src 'self'`
+    - **Content-Security-Policy**: define which hosts are allowed for the browser to download/send from/to (scripts, styles, images, iframes, forms..). `Content-Security-Policy: script-src 'self' https://apis.google.com; img-src 'self'`
     - Content-Security-Policy-Report-Only
     - (deprecated X-Webkit-CSP: old Chrome)
     - (deprecated X-Content-Security-Policy: IE10, FF<24)
