@@ -381,5 +381,9 @@ ga('send', 'pageview');
 ```html
 <meta name="google" value="notranslate">  
 ```
-  - If you can, try to make your website working without JS.
+  - Try to make your website working without JS (use server-side rendering)
+  - Validate your pages syntax using https://validator.w3.org/nu/?doc=http%3A%2F%2Fwww.twitter.com to quickly grab some bits of warnings and things not properly HTML standard or things you forgot. You probably have errors but it's because it's a bit too old and strict. ;-)
+  
+  
+  
 
