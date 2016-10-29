@@ -81,6 +81,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
     - Facebook https://developers.facebook.com/docs/plugins
     - Twitter https://dev.twitter.com/web/tweet-button
     - Google Plus https://developers.google.com/+/web/share/
+  - If your website uses CSP, don't forget to add rules to allow social buttons' integration
 
 ## Care about SEO ?
 
