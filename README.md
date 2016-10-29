@@ -27,7 +27,7 @@ Let's try to be concise.
   - Add all security headers
     - get A+ on https://securityheaders.io/
     - **Content-Security-Policy**: define which hosts are allowed for the browser to download/send from/to (scripts, styles, images, iframes, forms..). `Content-Security-Policy: script-src 'self' https://apis.google.com; img-src 'self'`. All details here https://www.html5rocks.com/en/tutorials/security/content-security-policy/
-    - Content-Security-Policy-Report-Only
+    - **Content-Security-Policy-Report-Only**: when migrating an existing website to CSP, use this first just to get reports on CSP violations (the browser will still acts normal)
     - (deprecated X-Webkit-CSP: old Chrome)
     - (deprecated X-Content-Security-Policy: IE10, FF<24)
     - Public-Key-Pins
