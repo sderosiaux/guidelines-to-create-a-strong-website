@@ -261,6 +261,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
 ````html
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 ```
+  - If you uses specific features, you can use https://modernizr.com/ to detect if available and can fallback.
   - Add shims
 ```html
 <!--[if lt IE 9]>
