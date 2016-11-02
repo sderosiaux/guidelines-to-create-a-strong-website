@@ -244,6 +244,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
 ## Care about accessibility (a11y) ?
 
   - Read http://www.bbc.co.uk/gel/guidelines/how-to-design-for-accessibility to get a global why we should care
+  - Check the posters in https://github.com/UKHomeOffice/posters/tree/master/accessibility to get more clear headlines
   - Audit your website: https://github.com/addyosmani/a11y [![GitHub stars](https://img.shields.io/github/stars/addyosmani/a11y.svg?style=social&label=Star)](https://github.com/addyosmani/a11y)
   - Be ARIA (Accessible Rich Internet Applications)
     - Check http://a11yproject.com/posts/getting-started-aria/ to understand what it is
