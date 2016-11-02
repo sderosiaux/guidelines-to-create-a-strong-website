@@ -88,9 +88,13 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
 
   - Use HTTPS
   - Isomorphic/Universal Javascript (prerendering page)
-  - Define the crawlers politic. Define the file robots.txt, or you can add a meta:
+  - Define the crawlers politic. Define the file `robots.txt`, or you can add a meta:
 ```html
 <meta name="robots" content="index,follow" />
+```
+  - Create a `humans.txt` because we are humans, not machines http://humanstxt.org/. You can add a meta to refer to it (or not). Try https://www.medium.com/humans.txt or https://www.google.com/humans.txt ;)
+```html
+<link type="text/plain" rel="author" href="humans.txt" />
 ```
   - If you have a multilanguage website, use `hreflang` tag to indicate alternative versions. Check https://support.google.com/webmasters/answer/189077
 ```html
