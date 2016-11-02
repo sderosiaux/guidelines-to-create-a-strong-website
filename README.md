@@ -243,9 +243,12 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
 
 ## Care about accessibility (a11y) ?
 
+  - Read http://www.bbc.co.uk/gel/guidelines/how-to-design-for-accessibility to get a global why we should care
   - Audit your website: https://github.com/addyosmani/a11y [![GitHub stars](https://img.shields.io/github/stars/addyosmani/a11y.svg?style=social&label=Star)](https://github.com/addyosmani/a11y)
-  - Use role="xxx"
-  - Use aria-xxx
+  - Be ARIA (Accessible Rich Internet Applications)
+    - Check http://a11yproject.com/posts/getting-started-aria/ to understand what it is
+    - Use its roles: `role="banner"` `role="navigation"` etc. see http://a11yproject.com/checklist.html for a useful list
+    - Use `alt` on images, `label` on forms controls labels    
   
 ## Care about privacy ?
 
