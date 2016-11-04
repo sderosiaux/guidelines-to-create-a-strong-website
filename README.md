@@ -381,7 +381,8 @@ ga('send', 'pageview');
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>  
 ```
-  - You an try Amplitude too https://amplitude.com/
+  - You an try Amplitude too https://amplitude.com/`
+  - Mixpanel is a good one too https://mixpanel.com/
   - You have a bunch of tags ? Use Google Tag Manager.
  
 ## Care about bugs ?
