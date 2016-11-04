@@ -266,7 +266,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
 ```html
 <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes, minimal-ui">
 ```
-  - Avoid FOUC (Flash Of Unstyled Content) https://en.wikipedia.org/wiki/Flash_of_unstyled_content
+  - Avoid FOUC (Flash Of Unstyled Content) and FOIC (Flash Of Invisible Content) https://css-tricks.com/fout-foit-foft/
   - Make it responsive using media queries and other css techniques
   - Talk to a UI and UX designer
   - Avoid to use custom scrollbars plugins. People tends to not like them. There are often used to cancel the style of the ugly scrollbars in Windows unfortunately.
