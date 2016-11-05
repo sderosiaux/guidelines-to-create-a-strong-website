@@ -255,6 +255,8 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
     - For more details https://classroom.udacity.com/courses/ud891
     - Use its roles: `role="banner"` `role="navigation"` etc. see http://a11yproject.com/checklist.html for a useful list
     - Use `alt` on images, `label` on forms controls labels    
+  - Read the "Web Content Accessibility Guidelines" ([WCAG](https://www.w3.org/TR/WCAG/))
+  - Ensure the color contrast you are using is fine: http://leaverou.github.io/contrast-ratio/    
   
 ## Care about privacy ?
 
@@ -271,6 +273,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
   - Talk to a UI and UX designer
   - Avoid to use custom scrollbars plugins. People tends to not like them. There are often used to cancel the style of the ugly scrollbars in Windows unfortunately.
   - Fix the size of elements in the page (images, videos..) to avoid shifting layouts
+  - Ensure the color contrast you are using is fine: http://leaverou.github.io/contrast-ratio/
 
 ## Care about legacy ?
 
