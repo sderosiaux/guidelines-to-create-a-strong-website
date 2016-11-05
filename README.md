@@ -33,8 +33,8 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
     - **Content-Security-Policy-Report-Only**: when migrating an existing website to CSP, use this first just to get reports on CSP violations (the browser will still acts normal)
     - (deprecated X-Webkit-CSP: old Chrome)
     - (deprecated X-Content-Security-Policy: IE10, FF<24)
-    - Public-Key-Pins
-    - Public-Key-Pins-Report-Only
+    - **Public-Key-Pins**: ensure the webclient has the right public keys, to avoid MITM attacks `public-key-pins-report-only:max-age=500; pin-sha256="WoiWRyIOVNa9ihaBciRSC7XHjliYS9VwUGOIud4PB18="; report-uri="http://example.com/hpkp/"`
+    - **Public-Key-Pins-Report-Only**: Same as CSP-RO, at first, add this one to see if it's working as expected. Facebook is using this one for instance.
     - Strict-Transport-Security
     - X-Content-Type-Options
     - X-Frame-Options
