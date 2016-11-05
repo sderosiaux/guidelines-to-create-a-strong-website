@@ -34,7 +34,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
     - (deprecated X-Webkit-CSP: old Chrome)
     - (deprecated X-Content-Security-Policy: IE10, FF<24)
     - **Public-Key-Pins**: ensure the webclient has the right public keys, to avoid MITM attacks `public-key-pins-report-only:max-age=500; pin-sha256="WoiWRyIOVNa9ihaBciRSC7XHjliYS9VwUGOIud4PB18="; report-uri="http://example.com/hpkp/"`
-    - **Public-Key-Pins-Report-Only**: Same as CSP-RO, at first, add this one to see if it's working as expected. Facebook is using this one for instance.
+    - **Public-Key-Pins-Report-Only**: Same as CSP-RO. At first, add this one to see if you get any error. Facebook is using this one for instance.
     - Strict-Transport-Security
     - X-Content-Type-Options
     - X-Frame-Options
@@ -270,6 +270,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
   - Make it responsive using media queries and other css techniques
   - Talk to a UI and UX designer
   - Avoid to use custom scrollbars plugins. People tends to not like them. There are often used to cancel the style of the ugly scrollbars in Windows unfortunately.
+  - Fix the size of elements in the page (images, videos..) to avoid shifting layouts
 
 ## Care about legacy ?
 
@@ -315,11 +316,12 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
 ```html
 <link rel="prerender" href="http://example.com/about">
 ```
-  - `defer` your `<script>` if possible
+  - `defer` or `async` your `<script>` if possible
   - Think about the critical css path. Inject it in the `<head>` directly
   - Move non critical stylesheets outside of the `<head>` (it blocks the first paint otherwise)
   - Shrink your js/css bundles
     - Split the libs bundle(s) (rarely changed) from the app bundle(s)
+  - Batch layout trashing using [fastdom](https://github.com/wilsonpage/fastdom)
   - Load unnecessary modules after the initial rendering
   - Delay if not in the viewport at first sight
     - Load images lazily
@@ -334,6 +336,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
 ```html
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300">
 ```
+  - Better, don't use `<link rel="stylesheet" ..>`, it's a blocking resource download. Try to inline into `<style>`.
   - For classic js third party libraries, use a cdn (unpkg, cdnjs, jsdelivr, maxcdn..)
   - Use a generic CDN for your resources like [Cloudflare](https://www.cloudflare.com/)
   - If you don't want an external CDN, install a "HTTP Web Accelerator" like Varnish to cache static resources server side and serve them faster
@@ -359,6 +362,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
 	"icons": [ { } ]
 }
 ```
+  - Use AMP https://www.ampproject.org/. It adds constraints and tons of tricks to get über-fast pages.
 
 ## Care about offline ?
 
