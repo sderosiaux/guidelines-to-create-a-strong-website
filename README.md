@@ -56,7 +56,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
   - Protect the servers against brutefores attacks (add some kind of ban politics)
   - Use JSON Web Tokens https://jwt.io/ to talk to the server
   - Protect against DDOS if you need to, for instance using [Cloudflare](https://www.cloudflare.com/)
-  - Use `rel="noopener"` for external links: `<a href="http://example.com" target="_blank" rel="noopener">`
+  - Use `rel="noopener noreferrer"` for external links: `<a href="http://example.com" target="_blank" rel="noopener noreferrer">` (`noreferrer` is for firefox) to avoid a vulnerability.
   - Identify frauds before they happen with Smyte (a js tag to add) https://www.smyte.com/
   - For registration pages, put a captcha. https://www.google.com/recaptcha/intro/index.html
 
