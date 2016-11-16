@@ -35,7 +35,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
     - (deprecated X-Content-Security-Policy: IE10, FF<24)
     - **Public-Key-Pins**: ensure the webclient has the right public keys, to avoid MITM attacks `public-key-pins-report-only:max-age=500; pin-sha256="WoiWRyIOVNa9ihaBciRSC7XHjliYS9VwUGOIud4PB18="; report-uri="http://example.com/hpkp/"`
     - **Public-Key-Pins-Report-Only**: Same as CSP-RO. At first, add this one to see if you get any error. Facebook is using this one for instance.
-    - Strict-Transport-Security
+    - **Strict-Transport-Security**: specify to the browser to use only HTTPS for a period of time. The browser will automatically use https if it got the header before. `Strict-Transport-Security: max-age=31536000` (1 year)
     - X-Content-Type-Options
     - X-Frame-Options
     - X-Xss-Protection
