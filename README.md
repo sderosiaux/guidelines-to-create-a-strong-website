@@ -39,7 +39,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
     - X-Content-Type-Options
     - X-Frame-Options
     - X-Xss-Protection
-    - X-Download-Options
+    - (deprecated X-Download-Options: IE8)
     - X-Permitted-Cross-Domain-Policies
     - Access-Control-Allow-Origin
     - Add CRI (Subresource Integrity) to your resources https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
