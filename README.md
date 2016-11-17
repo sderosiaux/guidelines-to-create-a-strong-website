@@ -264,6 +264,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
 
 ## Care about style ?
 
+  - Consider using a "reset" css such as https://necolas.github.io/normalize.css
   - Add viewport meta mobile compliant
 ```html
 <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes, minimal-ui">
