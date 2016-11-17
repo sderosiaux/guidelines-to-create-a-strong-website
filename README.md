@@ -347,6 +347,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
   - Check your performances with https://testmysite.io/ 
   - Check your performances and best practices with Lighthouse: https://github.com/GoogleChrome/lighthouse [![GitHub stars](https://img.shields.io/github/stars/GoogleChrome/lighthouse.svg?style=social&label=Star)](https://github.com/GoogleChrome/lighthouse) (test if you app can be considered as "progressive")
   - Analyze what changes in the DOM with Chrome extensions such as DOMListener and http://google.github.io/tracing-framework/ if you want the best!
+  - Evaluate your bloat score http://www.webbloatscore.com/
   
 ## Care about mobile ?
 
