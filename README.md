@@ -411,7 +411,7 @@ ga('send', 'pageview');
   - Try to make your website working without JS (use server-side rendering)
   - Validate your pages syntax using https://validator.w3.org/nu/?doc=http%3A%2F%2Fwww.twitter.com to quickly grab some bits of warnings and things not properly HTML standard or things you forgot. You probably have errors but it's because it's a bit too old and strict. ;-)
   - Use a clear and proper wording in your website. Check this out: https://uxplanet.org/effective-writing-for-your-ui-things-to-avoid-f6084e94e009  
-  - Consider having a way for user to send you some feedback. I would recommend something like https://doorbell.io/. A feedback widget easy to integrate.
+  - Consider having a way for users to send you some feedbacks. I would recommend something like https://doorbell.io/. A feedback widget easy to integrate.
   
   
 
