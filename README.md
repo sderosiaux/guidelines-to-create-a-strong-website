@@ -2,7 +2,7 @@
 
 Here you'll find out all the things I could think of to create a good website.
 From security, to performance, social sharing, analytics etc. I'm trying to not forget anything.
-This list will grows up over time.
+This list will grow up over time.
 
 Don't hesitate to PR and let's try to be concise. Other resources on the web go further in details for each topic, let's keep them one-liner here with a sample code when available.
 
