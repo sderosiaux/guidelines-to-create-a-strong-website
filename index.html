@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>How-to-make-a-good-website by chtefi</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>How-to-make-a-good-website</h1>
+        <h2>A list of all things to think of when making a website or webapp of quality.</h2>
+        <a href="https://github.com/chtefi/how-to-make-a-good-website" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="how-to-make-a-good-website" class="anchor" href="#how-to-make-a-good-website" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to make a good website</h1>
+
+<p>Here you'll find out all the things I could think of to create a good website.
+From security, to performance, social sharing, analytics etc. I'm trying to not forget anything.
+This list will grow up over time.</p>
+
+<p>Don't hesitate to PR and let's try to be concise. Other resources on the web go further in details for each topic, let's keep them one-liner here with a sample code when available.</p>
+
+<ul>
+<li><a href="#care-about-security-">Care about security ?</a></li>
+<li><a href="#care-about-social-">Care about social ?</a></li>
+<li><a href="#care-about-seo-">Care about SEO ?</a></li>
+<li><a href="#care-about-communication-">Care about communication ?</a></li>
+<li><a href="#care-about-apple-">Care about Apple ?</a></li>
+<li><a href="#care-about-accessibility-a11y-">Care about accessibility (a11y) ?</a></li>
+<li><a href="#care-about-privacy-">Care about privacy ?</a></li>
+<li><a href="#care-about-style-">Care about style ?</a></li>
+<li><a href="#care-about-legacy-">Care about legacy ?</a></li>
+<li><a href="#care-about-performance-">Care about performance ?</a></li>
+<li><a href="#care-about-mobile-">Care about mobile ?</a></li>
+<li><a href="#care-about-offline-">Care about offline ?</a></li>
+<li><a href="#care-about-analytics-">Care about analytics ?</a></li>
+<li><a href="#care-about-bugs-">Care about bugs ?</a></li>
+<li><a href="#care-about-misc-">Care about misc ?</a></li>
+</ul>
+
+<h2>
+<a id="care-about-security-" class="anchor" href="#care-about-security-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Care about security ?</h2>
+
+<ul>
+<li>Use HTTPS (add a letsencrypt certificate, renew every 3 months automatically)
+
+<ul>
+<li>get A+ on <a href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a>
+</li>
+<li>check more with <a href="https://certlogik.com/ssl-checker/">https://certlogik.com/ssl-checker/</a>
+</li>
+</ul>
+</li>
+<li>Add all security headers
+
+<ul>
+<li>get A+ on <a href="https://securityheaders.io/">https://securityheaders.io/</a>
+</li>
+<li>
+<strong>Content-Security-Policy</strong>: define which hosts are allowed for the browser to download/send from/to (scripts, styles, images, iframes, forms..). <code>Content-Security-Policy: script-src 'self' https://apis.google.com; img-src 'self'</code>. All details here <a href="https://www.html5rocks.com/en/tutorials/security/content-security-policy/">https://www.html5rocks.com/en/tutorials/security/content-security-policy/</a>
+</li>
+<li>
+<strong>Content-Security-Policy-Report-Only</strong>: when migrating an existing website to CSP, use this first just to get reports on CSP violations (the browser will still acts normal)</li>
+<li>(deprecated X-Webkit-CSP: old Chrome)</li>
+<li>(deprecated X-Content-Security-Policy: IE10, FF&lt;24)</li>
+<li>
+<strong>Public-Key-Pins</strong>: ensure the webclient has the right public keys, to avoid MITM attacks <code>public-key-pins-report-only:max-age=500; pin-sha256="WoiWRyIOVNa9ihaBciRSC7XHjliYS9VwUGOIud4PB18="; report-uri="http://example.com/hpkp/"</code>
+</li>
+<li>
+<strong>Public-Key-Pins-Report-Only</strong>: Same as CSP-RO. At first, add this one to see if you get any error. Facebook is using this one for instance.</li>
+<li>
+<strong>Strict-Transport-Security</strong>: specify to the browser to use only HTTPS for a period of time. The browser will automatically use https if it got the header before. <code>Strict-Transport-Security: max-age=63072000; includeSubDomains; preload</code> (2 years), and add it to the preload list of Chrome <a href="https://hstspreload.appspot.com">https://hstspreload.appspot.com</a> and figure inside Chromium's source: <a href="https://cs.chromium.org/chromium/src/net/http/transport_security_state_static.json">https://cs.chromium.org/chromium/src/net/http/transport_security_state_static.json</a>
+</li>
+<li>X-Content-Type-Options</li>
+<li>X-Frame-Options</li>
+<li>X-Xss-Protection</li>
+<li>(deprecated X-Download-Options: IE8)</li>
+<li>X-Permitted-Cross-Domain-Policies</li>
+<li>Access-Control-Allow-Origin</li>
+<li>Add CRI (Subresource Integrity) to your resources <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity">https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</a>
+</li>
+</ul>
+</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre><span class="pl-s1">&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>framework.js<span class="pl-pds">"</span></span></span>
+<span class="pl-s1">        <span class="pl-e">integrity</span>=<span class="pl-s"><span class="pl-pds">"</span>sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC<span class="pl-pds">"</span></span></span>
+<span class="pl-s1">        <span class="pl-e">crossorigin</span>=<span class="pl-s"><span class="pl-pds">"</span>anonymous<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
+
+<ul>
+<li>Protect again exploits
+
+<ul>
+<li>CSRF/XSRF <a href="https://en.wikipedia.org/wiki/Cross-site_request_forgery">https://en.wikipedia.org/wiki/Cross-site_request_forgery</a>
+</li>
+<li>XSS <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">https://en.wikipedia.org/wiki/Cross-site_scripting</a>
+</li>
+<li>XSSI <a href="http://stackoverflow.com/questions/8028511/what-is-cross-site-script-inclusion-xssi">http://stackoverflow.com/questions/8028511/what-is-cross-site-script-inclusion-xssi</a>
+</li>
+<li>Sql Injection <a href="https://en.wikipedia.org/wiki/SQL_injection">https://en.wikipedia.org/wiki/SQL_injection</a>
+</li>
+</ul>
+</li>
+<li>Protect the servers against brutefores attacks (add some kind of ban politics)</li>
+<li>Use JSON Web Tokens <a href="https://jwt.io/">https://jwt.io/</a> to talk to the server</li>
+<li>Protect against DDOS if you need to, for instance using <a href="https://www.cloudflare.com/">Cloudflare</a>
+</li>
+<li>Use <code>rel="noopener noreferrer"</code> for external links: <code>&lt;a href="http://example.com" target="_blank" rel="noopener noreferrer"&gt;</code> (<code>noreferrer</code> is for firefox) to avoid a vulnerability.</li>
+<li>Identify frauds before they happen with Smyte (a js tag to add) <a href="https://www.smyte.com/">https://www.smyte.com/</a>
+</li>
+<li>For registration pages, put a captcha. <a href="https://www.google.com/recaptcha/intro/index.html">https://www.google.com/recaptcha/intro/index.html</a>
+</li>
+</ul>
+
+<h2>
+<a id="care-about-social-" class="anchor" href="#care-about-social-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Care about social ?</h2>
+
+<ul>
+<li>Facebook <a href="https://developers.facebook.com/docs/reference/opengraph/">https://developers.facebook.com/docs/reference/opengraph/</a> <a href="http://stackoverflow.com/questions/10836135/when-do-i-need-a-fbapp-id-or-fbadmins">http://stackoverflow.com/questions/10836135/when-do-i-need-a-fbapp-id-or-fbadmins</a>
+</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">meta</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>fb:admins<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>USER_ID<span class="pl-pds">"</span></span> /&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>fb:app_id<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>123456789456489<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+<ul>
+<li>Twitter Card</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>twitter:card<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>summary<span class="pl-pds">"</span></span>/&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>twitter:title<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ PAGE_NAME }}<span class="pl-pds">"</span></span>/&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>twitter:description<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ PAGE_DESCRIPTION }}<span class="pl-pds">"</span></span>/&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>twitter:site<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ TWITTER_WEBSITE_ACCOUNT }}<span class="pl-pds">"</span></span>/&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>twitter:image<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ PAGE_IMAGE_URL }}<span class="pl-pds">"</span></span> /&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>twitter:creator<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ TWITTER_CREATOR_ACCOUNT }}<span class="pl-pds">"</span></span>/&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>twitter:domain<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>mon.site.com<span class="pl-pds">"</span></span>/&gt;</pre></div>
+
+<ul>
+<li>Google Plus</li>
+<li>Add the Sharing, Like, +1 buttons
+
+<ul>
+<li>Facebook <a href="https://developers.facebook.com/docs/plugins">https://developers.facebook.com/docs/plugins</a>
+</li>
+<li>Twitter <a href="https://dev.twitter.com/web/tweet-button">https://dev.twitter.com/web/tweet-button</a>
+</li>
+<li>Google Plus <a href="https://developers.google.com/+/web/share/">https://developers.google.com/+/web/share/</a>
+</li>
+</ul>
+</li>
+<li>If your website uses CSP, don't forget to add rules to allow social buttons' integration</li>
+</ul>
+
+<h2>
+<a id="care-about-seo-" class="anchor" href="#care-about-seo-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Care about SEO ?</h2>
+
+<ul>
+<li>Use HTTPS</li>
+<li>Isomorphic/Universal Javascript (prerendering page)</li>
+<li>Define the crawlers politic. Define the file <code>robots.txt</code>, or you can add a meta:</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>robots<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>index,follow<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+<ul>
+<li>Create a <code>humans.txt</code> because we are humans, not machines <a href="http://humanstxt.org/">http://humanstxt.org/</a>. You can add a meta to refer to it (or not). Try <a href="https://www.medium.com/humans.txt">https://www.medium.com/humans.txt</a> or <a href="https://www.google.com/humans.txt">https://www.google.com/humans.txt</a> ;)</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/plain<span class="pl-pds">"</span></span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>author<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>humans.txt<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+<ul>
+<li>If you have a multilanguage website, use <code>hreflang</code> tag to indicate alternative versions. Check <a href="https://support.google.com/webmasters/answer/189077">https://support.google.com/webmasters/answer/189077</a>
+</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>alternate<span class="pl-pds">"</span></span> <span class="pl-e">hreflang</span>=<span class="pl-s"><span class="pl-pds">"</span>es<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>http://es.example.com/<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+<h2>
+<a id="care-about-communication-" class="anchor" href="#care-about-communication-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Care about communication ?</h2>
+
+<ul>
+<li>OpenGraph <a href="http://ogp.me/">http://ogp.me/</a>
+</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">meta</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>og:locale<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ LOCALE }}<span class="pl-pds">"</span></span> /&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>og:type<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>article<span class="pl-pds">"</span></span> /&gt; <span class="pl-c">&lt;!-- product... --&gt;</span>
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>og:title<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ PAGE_NAME }}<span class="pl-pds">"</span></span> /&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>og:description<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ PAGE_DESCRIPTION }}<span class="pl-pds">"</span></span> /&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>og:image<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ PAGE_IMAGE_URL }}<span class="pl-pds">"</span></span> /&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>og:url<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ PAGE_CANONICAL_URL }}<span class="pl-pds">"</span></span> /&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>og:site_name<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ APPLICATION_NAME }}<span class="pl-pds">"</span></span> /&gt;   
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>og:updated_time<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>2015-05-12T22:24:50+00:00<span class="pl-pds">"</span></span> /&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>article:publisher<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ PUBLISHER }}<span class="pl-pds">"</span></span> /&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>article:author<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ AUTHOR }}<span class="pl-pds">"</span></span> /&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>article:section<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>Technology<span class="pl-pds">"</span></span> /&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>article:published_time<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>2015-01-06T23:07:41+00:00<span class="pl-pds">"</span></span> /&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>article:modified_time<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>2015-05-12T22:24:50+00:00<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+<ul>
+<li>Bing</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>geo.placename<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>United States<span class="pl-pds">"</span></span> /&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>geo.position<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>x;x<span class="pl-pds">"</span></span> /&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>geo.region<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>usa<span class="pl-pds">"</span></span> /&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>ICBM<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>x,x<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+<ul>
+<li>Define a canonical URL for every page (to avoid to reference twice the same page, for instance the mobile version and the desktop's)</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>canonical<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>article.html<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<ul>
+<li>Define it's UTF8</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">meta</span> <span class="pl-e">charset</span>=<span class="pl-s"><span class="pl-pds">"</span>utf-8<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<ul>
+<li>Define the content type</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">meta</span> <span class="pl-e">http-equiv</span>=<span class="pl-s"><span class="pl-pds">"</span>Content-Type<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>text/html; charset=UTF-8<span class="pl-pds">"</span></span>/&gt;</pre></div>
+
+<ul>
+<li>Language</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">html</span> <span class="pl-e">lang</span>=<span class="pl-s"><span class="pl-pds">"</span>en<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">http-equiv</span>=<span class="pl-s"><span class="pl-pds">"</span>Content-Language<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>en<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>language<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ LANG }}<span class="pl-pds">"</span></span> /&gt;<span class="pl-c">&lt;!-- Old --&gt;</span></pre></div>
+
+<ul>
+<li>Provide some info the browsers/crawlers can use to describe your app (if web app)</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>application-name<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ APPLICATION_NAME }}<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>description<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ PAGE_DESCRIPTION }}<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>keywords<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ PAGE_KEYWORD }}<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+<ul>
+<li>Define a pingback route to know who is linking to you <a href="http://wordpress.stackexchange.com/questions/116079/what-is-rel-pingback-and-what-is-the-use-of-this-in-my-website">http://wordpress.stackexchange.com/questions/116079/what-is-rel-pingback-and-what-is-the-use-of-this-in-my-website</a>
+</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>pingback<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>http://www.example.com/xmlrpc.php<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+<ul>
+<li>You can put some RSS</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>alternate<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>application/rss+xml<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>http://www.example.com/rss.xml<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+<ul>
+<li>Prev/Next pages if you are in a listing</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>prev<span class="pl-pds">"</span></span> <span class="pl-e">title</span>=<span class="pl-s"><span class="pl-pds">"</span>...<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>.../page/1<span class="pl-pds">"</span></span> /&gt;
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>next<span class="pl-pds">"</span></span> <span class="pl-e">title</span>=<span class="pl-s"><span class="pl-pds">"</span>...<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>.../page/3<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+<ul>
+<li>Define the shortlink of the pages</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>shortlink<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/html<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>http://example.com/Ad1ca9<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<ul>
+<li>Define the sitemap of the website</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>sitemap<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>application/xml<span class="pl-pds">"</span></span> <span class="pl-e">title</span>=<span class="pl-s"><span class="pl-pds">"</span>Sitemap<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ SITEMAP_URL }}<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+<ul>
+<li>Favicons/Tiles (+ Apple/Windows variations) </li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre><span class="pl-c">&lt;!-- The classic one --&gt;</span>
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>shortcut icon<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>image/x-icon<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>favicon.ico<span class="pl-pds">"</span></span>&gt;
+
+<span class="pl-c">&lt;!-- Used by http://fluidapp.com/ (website to native app on Mac) --&gt;</span>
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>fluid-icon<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>fluidicon.png<span class="pl-pds">"</span></span> <span class="pl-e">title</span>=<span class="pl-s"><span class="pl-pds">"</span>...<span class="pl-pds">"</span></span>&gt;
+
+<span class="pl-c">&lt;!-- Apple formats https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html --&gt;</span>
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>apple-touch-icon<span class="pl-pds">"</span></span> <span class="pl-e">sizes</span>=<span class="pl-s"><span class="pl-pds">"</span>57x57<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>/apple-icon-57x57.png<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>apple-touch-icon<span class="pl-pds">"</span></span> <span class="pl-e">sizes</span>=<span class="pl-s"><span class="pl-pds">"</span>60x60<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>/apple-icon-60x60.png<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>apple-touch-icon<span class="pl-pds">"</span></span> <span class="pl-e">sizes</span>=<span class="pl-s"><span class="pl-pds">"</span>72x72<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>/apple-icon-72x72.png<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>apple-touch-icon<span class="pl-pds">"</span></span> <span class="pl-e">sizes</span>=<span class="pl-s"><span class="pl-pds">"</span>76x76<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>/apple-icon-76x76.png<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>apple-touch-icon<span class="pl-pds">"</span></span> <span class="pl-e">sizes</span>=<span class="pl-s"><span class="pl-pds">"</span>114x114<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>/apple-icon-114x114.png<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>apple-touch-icon<span class="pl-pds">"</span></span> <span class="pl-e">sizes</span>=<span class="pl-s"><span class="pl-pds">"</span>120x120<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>/apple-icon-120x120.png<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>apple-touch-icon<span class="pl-pds">"</span></span> <span class="pl-e">sizes</span>=<span class="pl-s"><span class="pl-pds">"</span>144x144<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>/apple-icon-144x144.png<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>apple-touch-icon<span class="pl-pds">"</span></span> <span class="pl-e">sizes</span>=<span class="pl-s"><span class="pl-pds">"</span>152x152<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>/apple-icon-152x152.png<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>apple-touch-icon<span class="pl-pds">"</span></span> <span class="pl-e">sizes</span>=<span class="pl-s"><span class="pl-pds">"</span>180x180<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>/apple-icon-180x180.png<span class="pl-pds">"</span></span>&gt;
+
+<span class="pl-c">&lt;!-- For Safari pinned tabs --&gt;</span>
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>mask-icon<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>logo.svg<span class="pl-pds">"</span></span> <span class="pl-e">color</span>=<span class="pl-s"><span class="pl-pds">"</span>orange<span class="pl-pds">"</span></span>&gt;
+
+<span class="pl-c">&lt;!-- Recommanded is 192x192 only --&gt;</span>
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>icon<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>image/png<span class="pl-pds">"</span></span> <span class="pl-e">sizes</span>=<span class="pl-s"><span class="pl-pds">"</span>192x192<span class="pl-pds">"</span></span>  <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>/icon-192x192.png<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>icon<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>image/png<span class="pl-pds">"</span></span> <span class="pl-e">sizes</span>=<span class="pl-s"><span class="pl-pds">"</span>32x32<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>/favicon-32x32.png<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>icon<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>image/png<span class="pl-pds">"</span></span> <span class="pl-e">sizes</span>=<span class="pl-s"><span class="pl-pds">"</span>96x96<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>/favicon-96x96.png<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>icon<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>image/png<span class="pl-pds">"</span></span> <span class="pl-e">sizes</span>=<span class="pl-s"><span class="pl-pds">"</span>16x16<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>/favicon-16x16.png<span class="pl-pds">"</span></span>&gt;
+
+<span class="pl-c">&lt;!-- Not sure if still used. App should used it if og:image is unspecified, to display an image when sharing --&gt;</span>
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>image_src<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>{{ PAGE_IMAGE_URL }}<span class="pl-pds">"</span></span>&gt;
+
+<span class="pl-c">&lt;!-- Windows --&gt;</span>
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>msapplication-TileColor<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>#ffffff<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>msapplication-TileImage<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>/ms-icon-144x144.png<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>theme-color<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>#ffffff<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<ul>
+<li>Really Simple Discovery  <a href="http://en.wikipedia.org/wiki/Really_Simple_Discovery">http://en.wikipedia.org/wiki/Really_Simple_Discovery</a>
+</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>EditURI<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>application/rsd+xml<span class="pl-pds">"</span></span> <span class="pl-e">title</span>=<span class="pl-s"><span class="pl-pds">"</span>RSD<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>http://www.example.com/xmlrpc.php?rsd<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+<ul>
+<li>WindowsLiveWriter</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>wlwmanifest<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>application/wlwmanifest+xml<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>http://www.example.com/wlwmanifest.xml<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+<ul>
+<li>OpenSearch</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>search<span class="pl-pds">"</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>application/opensearchdescription+xml<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>/opensearch.xml<span class="pl-pds">"</span></span> <span class="pl-e">title</span>=<span class="pl-s"><span class="pl-pds">"</span>...<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<ul>
+<li>JSON-LD aka Structured Data. It's a mandatory thing to add to your pages. The search engine will format its result according to that. Check <a href="https://developers.google.com/search/docs/guides/search-gallery">https://developers.google.com/search/docs/guides/search-gallery</a> to know what is possible and how to write them. </li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre><span class="pl-s1">&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>application/ld+json<span class="pl-pds">"</span></span>&gt;{<span class="pl-s"><span class="pl-pds">"</span>@context<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>http:<span class="pl-cce">\/\/</span>schema.org<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>@type<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>WebSite<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>url<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>https:<span class="pl-cce">\/\/</span>...<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>...<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>alternateName<span class="pl-pds">"</span></span><span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>...<span class="pl-pds">"</span></span>}&lt;/<span class="pl-ent">script</span>&gt;</span></pre></div>
+
+<ul>
+<li>XFN (human relationships) <a href="http://microformats.org/wiki/rel-profile">http://microformats.org/wiki/rel-profile</a>
+</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>profile<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>http://gmpg.org/xfn/11<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+<ul>
+<li>Dublin Core Metadata (not sure if used?) <a href="https://en.wikipedia.org/wiki/Dublin_Core">https://en.wikipedia.org/wiki/Dublin_Core</a>
+</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>DC.Format<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>text/html<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>DC.Language<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>en<span class="pl-pds">"</span></span> &gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>DC.Type<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>Text<span class="pl-pds">"</span></span> &gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>DC.Title<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>My revolution<span class="pl-pds">"</span></span> &gt;</pre></div>
+
+<h2>
+<a id="care-about-apple-" class="anchor" href="#care-about-apple-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Care about Apple ?</h2>
+
+<ul>
+<li>Apple has some options to customize the web app appearance <a href="https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html">https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html</a>
+</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>apple-touch-startup-image<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>/startup.png<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>apple-mobile-web-app-capable<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>yes<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>apple-mobile-web-app-status-bar-style<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>black<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>format-detection<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>telephone=no<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<h2>
+<a id="care-about-accessibility-a11y-" class="anchor" href="#care-about-accessibility-a11y-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Care about accessibility (a11y) ?</h2>
+
+<ul>
+<li>Read <a href="http://www.bbc.co.uk/gel/guidelines/how-to-design-for-accessibility">http://www.bbc.co.uk/gel/guidelines/how-to-design-for-accessibility</a> to get a global why we should care</li>
+<li>Check the posters in <a href="https://github.com/UKHomeOffice/posters/tree/master/accessibility">https://github.com/UKHomeOffice/posters/tree/master/accessibility</a> to get more clear headlines</li>
+<li>Audit your website: <a href="https://github.com/addyosmani/a11y">https://github.com/addyosmani/a11y</a> <a href="https://github.com/addyosmani/a11y"><img src="https://img.shields.io/github/stars/addyosmani/a11y.svg?style=social&amp;label=Star" alt="GitHub stars"></a>
+</li>
+<li>Be ARIA (Accessible Rich Internet Applications)
+
+<ul>
+<li>Check <a href="http://a11yproject.com/posts/getting-started-aria/">http://a11yproject.com/posts/getting-started-aria/</a> to understand what it is</li>
+<li>For more details <a href="https://classroom.udacity.com/courses/ud891">https://classroom.udacity.com/courses/ud891</a>
+</li>
+<li>Use its roles: <code>role="banner"</code> <code>role="navigation"</code> etc. see <a href="http://a11yproject.com/checklist.html">http://a11yproject.com/checklist.html</a> for a useful list</li>
+<li>Use <code>alt</code> on images, <code>label</code> on forms controls labels<br>
+</li>
+</ul>
+</li>
+<li>Read the "Web Content Accessibility Guidelines" (<a href="https://www.w3.org/TR/WCAG/">WCAG</a>)</li>
+<li>Ensure the color contrast you are using is fine: <a href="http://leaverou.github.io/contrast-ratio/">http://leaverou.github.io/contrast-ratio/</a><br>
+</li>
+</ul>
+
+<h2>
+<a id="care-about-privacy-" class="anchor" href="#care-about-privacy-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Care about privacy ?</h2>
+
+<ul>
+<li>Add Do Not Track (DNT) header: opt-out of third-party tracking for purposes including behavioral advertising <a href="https://en.wikipedia.org/wiki/Do_Not_Track">https://en.wikipedia.org/wiki/Do_Not_Track</a> <code>DNT: 1</code>
+</li>
+</ul>
+
+<h2>
+<a id="care-about-style-" class="anchor" href="#care-about-style-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Care about style ?</h2>
+
+<ul>
+<li>Consider using a "reset" css such as <a href="https://necolas.github.io/normalize.css">https://necolas.github.io/normalize.css</a>
+</li>
+<li>Add viewport meta mobile compliant</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>viewport<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes, minimal-ui<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<ul>
+<li>Avoid FOUC (Flash Of Unstyled Content) and FOIC (Flash Of Invisible Content) <a href="https://css-tricks.com/fout-foit-foft/">https://css-tricks.com/fout-foit-foft/</a>
+</li>
+<li>Make it responsive using media queries and other css techniques</li>
+<li>Talk to a UI and UX designer</li>
+<li>Avoid to use custom scrollbars plugins. People tends to not like them. There are often used to cancel the style of the ugly scrollbars in Windows unfortunately.</li>
+<li>Fix the size of elements in the page (images, videos..) to avoid shifting layouts</li>
+<li>Ensure the color contrast you are using is fine: <a href="http://leaverou.github.io/contrast-ratio/">http://leaverou.github.io/contrast-ratio/</a>
+</li>
+</ul>
+
+<h2>
+<a id="care-about-legacy-" class="anchor" href="#care-about-legacy-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Care about legacy ?</h2>
+
+<ul>
+<li>Add X-UA-Compatible</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">meta</span> <span class="pl-e">http-equiv</span>=<span class="pl-s"><span class="pl-pds">"</span>X-UA-Compatible<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>IE=edge,chrome=1<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<ul>
+<li>If you uses specific features, you can use <code>@supports</code> if css only, or <a href="https://modernizr.com/">https://modernizr.com/</a> to detect if a feature is available and can fallback.</li>
+<li>Add shims</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre><span class="pl-c">&lt;!--[if lt IE 9]&gt;</span>
+<span class="pl-c">&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"&gt;&lt;/script&gt;</span>
+<span class="pl-c">&lt;![endif]--&gt;</span></pre></div>
+
+<ul>
+<li>Add polyfills (use cloudflare cdn to grab them)
+
+<ul>
+<li>
+<code>fetch</code>: <a href="https://github.com/github/fetch">https://github.com/github/fetch</a> <a href="https://github.com/github/fetch"><img src="https://img.shields.io/github/stars/github/fetch.svg?style=social&amp;label=Star" alt="GitHub stars"></a>
+</li>
+<li>
+<code>Promise</code>: <a href="https://github.com/stefanpenner/es6-promise">https://github.com/stefanpenner/es6-promise</a> <a href="https://github.com/stefanpenner/es6-promise"><img src="https://img.shields.io/github/stars/stefanpenner/es6-promise.svg?style=social&amp;label=Star" alt="GitHub stars"></a>
+</li>
+<li>media queries: <a href="https://github.com/scottjehl/Respond">https://github.com/scottjehl/Respond</a> <a href="https://github.com/scottjehl/Respond"><img src="https://img.shields.io/github/stars/scottjehl/Respond.svg?style=social&amp;label=Star" alt="GitHub stars"></a>
+</li>
+<li>all es6 and es7 features: <a href="https://github.com/zloirock/core-js">https://github.com/zloirock/core-js</a> <a href="https://github.com/zloirock/core-js"><img src="https://img.shields.io/github/stars/zloirock/core-js.svg?style=social&amp;label=Star" alt="GitHub stars"></a>
+</li>
+<li>Web Animations API (<code>document.querySelector('.pulse').animate({...})</code>): <a href="https://github.com/web-animations/web-animations-js">https://github.com/web-animations/web-animations-js</a> <a href="https://github.com/web-animations/web-animations-js"><img src="https://img.shields.io/github/stars/web-animations/web-animations-js.svg?style=social&amp;label=Star" alt="GitHub stars"></a>
+</li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="care-about-performance-" class="anchor" href="#care-about-performance-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Care about performance ?</h2>
+
+<ul>
+<li>Use HTTP/2</li>
+<li>DNS Prefetch to resolve DNS asap (for future pages)</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>dns-prefetch<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>//fonts.googleapis.com<span class="pl-pds">"</span></span>&gt;
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>dns-prefetch<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>//themes.googleusercontent.com<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<ul>
+<li>DNS+Handshake+TLS Preconnect. Better. DNS+TCP handshake + optional TLS negotiation. Use for the current page.</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>preconnect<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>//fonts.googleapis.com<span class="pl-pds">"</span></span>&gt;  </pre></div>
+
+<ul>
+<li>Resource Prefetch (low priority). Download a resource right now (into cache) if we know it's going to be used later.</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>prefetch<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>image.png<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<ul>
+<li>Subresource: Download directly (high priority, whereas prefetch is low priority) a resource that will be discovered later in the page (such as <code>&lt;script&gt;</code> at the end)</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>subresource<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>app.js<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<ul>
+<li>Prerender. Fetch the whole content of another page (css, process js etc.). Useful when you know that the user will click on it for sure. It will take only a instant (everything will be already loaded!)</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>prerender<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>http://example.com/about<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<ul>
+<li>
+<code>defer</code> or <code>async</code> your <code>&lt;script&gt;</code> if possible</li>
+<li>Think about the critical css path. Inject it in the <code>&lt;head&gt;</code> directly</li>
+<li>Move non critical stylesheets outside of the <code>&lt;head&gt;</code> (it blocks the first paint otherwise)</li>
+<li>Shrink your js/css bundles
+
+<ul>
+<li>Split the libs bundle(s) (rarely changed) from the app bundle(s)</li>
+</ul>
+</li>
+<li>Batch layout trashing using <a href="https://github.com/wilsonpage/fastdom">fastdom</a>
+</li>
+<li>Load unnecessary modules after the initial rendering</li>
+<li>Delay if not in the viewport at first sight
+
+<ul>
+<li>Load images lazily</li>
+</ul>
+</li>
+<li>Use <code>requestAnimationFrame</code> to handle any animation if using JS (avoid <code>setTimeout</code>/<code>setInterval</code>) <a href="https://developers.google.com/web/fundamentals/performance/rendering/optimize-javascript-execution">https://developers.google.com/web/fundamentals/performance/rendering/optimize-javascript-execution</a>
+</li>
+<li>Use <code>requestIdleCallback</code> when you want to process something not time critical <a href="https://developers.google.com/web/updates/2015/08/using-requestidlecallback">https://developers.google.com/web/updates/2015/08/using-requestidlecallback</a>
+</li>
+<li>Avoir layout trashing (write/read DOM continuously). Batch. And simply let the frameworks (if available) update the DOM for you (with the Virtual DOM nowadays)</li>
+<li>Gzip your resources</li>
+<li>Optimize your images and your SVGs <a href="https://jakearchibald.github.io/svgomg/">https://jakearchibald.github.io/svgomg/</a>
+</li>
+<li>Use <code>async</code> and <code>defer</code> on your scripts when it's possible</li>
+<li>To do something before unloading the page, use the navigator beacon to not block the closing <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon">https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon</a>
+</li>
+<li>Only import the necessary font families and weights</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>//fonts.googleapis.com/css?family=Open+Sans:300<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<ul>
+<li>Better, don't use <code>&lt;link rel="stylesheet" ..&gt;</code>, it's a blocking resource download. Try to inline into <code>&lt;style&gt;</code>.</li>
+<li>For classic js third party libraries, use a cdn (unpkg, cdnjs, jsdelivr, maxcdn..)</li>
+<li>Use a generic CDN for your resources like <a href="https://www.cloudflare.com/">Cloudflare</a>
+</li>
+<li>If you don't want an external CDN, install a "HTTP Web Accelerator" like Varnish to cache static resources server side and serve them faster</li>
+<li>Use <code>rel="noopener"</code> for external links: <code>&lt;a href="http://example.com" target="_blank" rel="noopener"&gt;</code>
+</li>
+<li>Check your performances with <a href="https://testmysite.io/">https://testmysite.io/</a> </li>
+<li>Check your performances and best practices with Lighthouse: <a href="https://github.com/GoogleChrome/lighthouse">https://github.com/GoogleChrome/lighthouse</a> <a href="https://github.com/GoogleChrome/lighthouse"><img src="https://img.shields.io/github/stars/GoogleChrome/lighthouse.svg?style=social&amp;label=Star" alt="GitHub stars"></a> (test if you app can be considered as "progressive")</li>
+<li>Analyze what changes in the DOM with Chrome extensions such as DOMListener and <a href="http://google.github.io/tracing-framework/">http://google.github.io/tracing-framework/</a> if you want the best!</li>
+<li>Evaluate your bloat score <a href="http://www.webbloatscore.com/">http://www.webbloatscore.com/</a>
+</li>
+</ul>
+
+<h2>
+<a id="care-about-mobile-" class="anchor" href="#care-about-mobile-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Care about mobile ?</h2>
+
+<ul>
+<li>Add a manifest to know how to display it on the home screen <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest">https://developer.mozilla.org/en-US/docs/Web/Manifest</a>
+</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>manifest<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>/manifest.json<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<div class="highlight highlight-source-json"><pre>{
+    <span class="pl-s"><span class="pl-pds">"</span>name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>example.com<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>short_name<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>EXX<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>start_url<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>/<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>display<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>standalone<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>background_color<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>#fff<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>theme_color<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>#0379C4<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>description<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>The official website and documentation for ...<span class="pl-pds">"</span></span>,
+    <span class="pl-s"><span class="pl-pds">"</span>icons<span class="pl-pds">"</span></span>: [ { } ]
+}</pre></div>
+
+<ul>
+<li>Use AMP <a href="https://www.ampproject.org/">https://www.ampproject.org/</a>. It adds constraints and tons of tricks to get über-fast pages.</li>
+</ul>
+
+<h2>
+<a id="care-about-offline-" class="anchor" href="#care-about-offline-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Care about offline ?</h2>
+
+<ul>
+<li>Add a service worker and cache resources and responses <a href="https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/">https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/</a>
+
+<ul>
+<li>you can generate automatically some service-worker.js code using <a href="https://github.com/GoogleChrome/sw-precache">https://github.com/GoogleChrome/sw-precache</a>
+</li>
+</ul>
+</li>
+<li>(Add a AppCache manifest. Deprecated)</li>
+</ul>
+
+<h2>
+<a id="care-about-analytics-" class="anchor" href="#care-about-analytics-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Care about analytics ?</h2>
+
+<ul>
+<li>Google Webmaster</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>google-site-verification<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>xyz<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<ul>
+<li>Google analytics <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/">https://developers.google.com/analytics/devguides/collection/analyticsjs/</a>
+</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre><span class="pl-s1">&lt;<span class="pl-ent">script</span>&gt;</span>
+<span class="pl-s1"><span class="pl-c1">window</span>.<span class="pl-smi">ga</span><span class="pl-k">=</span><span class="pl-c1">window</span>.<span class="pl-smi">ga</span><span class="pl-k">||</span><span class="pl-k">function</span>(){(<span class="pl-smi">ga</span>.<span class="pl-smi">q</span><span class="pl-k">=</span><span class="pl-smi">ga</span>.<span class="pl-smi">q</span><span class="pl-k">||</span>[]).<span class="pl-c1">push</span>(<span class="pl-v">arguments</span>)};<span class="pl-smi">ga</span>.<span class="pl-smi">l</span><span class="pl-k">=</span><span class="pl-k">+</span><span class="pl-k">new</span> <span class="pl-en">Date</span>;</span>
+<span class="pl-s1"><span class="pl-en">ga</span>(<span class="pl-s"><span class="pl-pds">'</span>create<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>UA-XXXXX-Y<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>auto<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1"><span class="pl-en">ga</span>(<span class="pl-s"><span class="pl-pds">'</span>send<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>pageview<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1">&lt;/<span class="pl-ent">script</span>&gt;</span>
+&lt;<span class="pl-ent">script</span> <span class="pl-e">async</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">'</span>https://www.google-analytics.com/analytics.js<span class="pl-pds">'</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;  </pre></div>
+
+<ul>
+<li>You an try Amplitude too <a href="https://amplitude.com/%60">https://amplitude.com/`</a>
+</li>
+<li>Mixpanel is a good one too <a href="https://mixpanel.com/">https://mixpanel.com/</a>
+</li>
+<li>You have a bunch of tags ? Use Google Tag Manager.</li>
+</ul>
+
+<h2>
+<a id="care-about-bugs-" class="anchor" href="#care-about-bugs-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Care about bugs ?</h2>
+
+<ul>
+<li>Monitor browser's JS errors, for instance with <a href="https://trackjs.com">https://trackjs.com</a> or <a href="https://sentry.io/">https://sentry.io/</a>
+</li>
+<li>Check your Google Webmaster for crawl/sitemap/robots errors</li>
+</ul>
+
+<h2>
+<a id="care-about-misc-" class="anchor" href="#care-about-misc-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Care about misc ?</h2>
+
+<ul>
+<li>If the website sets cookies to an EU visitor, you must display a notice <a href="https://www.cookielaw.org/the-cookie-law/">https://www.cookielaw.org/the-cookie-law/</a>
+</li>
+<li>Add a legal mentions page</li>
+<li>Add Google notranslate to avoid Google to display the translation bar when you know it's not needed</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>google<span class="pl-pds">"</span></span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>notranslate<span class="pl-pds">"</span></span>&gt;  </pre></div>
+
+<ul>
+<li>Try to make your website working without JS (use server-side rendering)</li>
+<li>Validate your pages syntax using <a href="https://validator.w3.org/nu/?doc=http%3A%2F%2Fwww.twitter.com">https://validator.w3.org/nu/?doc=http%3A%2F%2Fwww.twitter.com</a> to quickly grab some bits of warnings and things not properly HTML standard or things you forgot. You probably have errors but it's because it's a bit too old and strict. ;-)</li>
+<li>Use a clear and proper wording in your website. Check this out: <a href="https://uxplanet.org/effective-writing-for-your-ui-things-to-avoid-f6084e94e009">https://uxplanet.org/effective-writing-for-your-ui-things-to-avoid-f6084e94e009</a><br>
+</li>
+</ul>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/chtefi/how-to-make-a-good-website/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/chtefi/how-to-make-a-good-website/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/chtefi/how-to-make-a-good-website"></a> is maintained by <a href="https://github.com/chtefi">chtefi</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
