@@ -403,7 +403,7 @@ ga('send', 'pageview');
 
 ## Care about misc ?
 
-  - If the website sets cookies to an EU visitor, you must display a notice https://www.cookielaw.org/the-cookie-law/
+  - If the website sets cookies to an EU visitor, you must display a notice https://www.cookielaw.org/the-cookie-law/. You can use https://silktide.com/tools/cookie-consent/ to make it nice!
   - Add a legal mentions page
   - Add Google notranslate to avoid Google to display the translation bar when you know it's not needed
 ```html
