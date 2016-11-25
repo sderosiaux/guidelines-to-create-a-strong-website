@@ -101,7 +101,11 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
 ```html
 <link rel="alternate" hreflang="es" href="http://es.example.com/" />
 ```
-
+  - If your website publishes news:
+    - you can use `<meta name="news_keywords" content="football, world cup" />` to help Google News to reference you https://support.google.com/news/publisher/answer/68297?hl=en
+    - you can use `<meta name="syndication-source" content="http://example.com/my_news" />` if you are the original creator of the news, to indicate you are the original source.
+    - it exists also a meta `original-source` to reference the sources you reference in your article
+   
 ## Care about communication ?
 
   - OpenGraph http://ogp.me/
