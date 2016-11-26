@@ -330,6 +330,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
   - Move non critical stylesheets outside of the `<head>` (it blocks the first paint otherwise)
   - Shrink your js/css bundles
     - Split the libs bundle(s) (rarely changed) from the app bundle(s)
+    - Analyze your js bundle, to be sure you are not bundling crap (using [source-map-explorer](https://github.com/danvk/source-map-explorer for instance))
   - Batch layout trashing using [fastdom](https://github.com/wilsonpage/fastdom)
   - Load unnecessary modules after the initial rendering
   - Delay if not in the viewport at first sight
