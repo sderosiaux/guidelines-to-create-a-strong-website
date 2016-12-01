@@ -403,7 +403,7 @@ ga('send', 'pageview');
  
 ## Care about bugs ?
 
-  - Monitor browser's JS errors, for instance with https://trackjs.com or https://sentry.io/
+  - Monitor browser's JS errors, for instance with https://trackjs.com, https://sentry.io/, or https://bugsnag.com/
   - Check your Google Webmaster for crawl/sitemap/robots errors
 
 ## Care about misc ?
