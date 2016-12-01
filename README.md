@@ -300,6 +300,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
     - media queries: https://github.com/scottjehl/Respond [![GitHub stars](https://img.shields.io/github/stars/scottjehl/Respond.svg?style=social&label=Star)](https://github.com/scottjehl/Respond)
     - all es6 and es7 features: https://github.com/zloirock/core-js [![GitHub stars](https://img.shields.io/github/stars/zloirock/core-js.svg?style=social&label=Star)](https://github.com/zloirock/core-js)
     - Web Animations API (`document.querySelector('.pulse').animate({...})`): https://github.com/web-animations/web-animations-js [![GitHub stars](https://img.shields.io/github/stars/web-animations/web-animations-js.svg?style=social&label=Star)](https://github.com/web-animations/web-animations-js)
+    - You can also not bundle them and let the browser download what's needed with https://qa.polyfill.io/v2/docs/examples
 
 ## Care about performance ?
 
