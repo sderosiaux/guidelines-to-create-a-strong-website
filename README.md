@@ -330,7 +330,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
 ```html
 <link rel="prerender" href="http://example.com/about">
 ```
-  - `defer` or `async` your `<script>` if possible
+  - `defer` (if the script rely on DOM) or `async` (totally independant) your `<script>`s if possible
   - Think about the critical css path. Inject it in the `<head>` directly
   - Move non critical stylesheets outside of the `<head>` (it blocks the first paint otherwise)
   - Shrink your js/css bundles
