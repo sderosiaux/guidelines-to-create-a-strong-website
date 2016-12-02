@@ -318,11 +318,11 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
 ```html
 <link rel="preload" href="image.png" as="image" media="(min-width: 1024px)">
 ```  
-  - Resource Prefetch (low priority). Download a resource right now (into cache) if we know it's going to be used later.
+  - Resource Prefetch (low priority). Download a resource (into the cache) when the browser will have time, if we know it's going to be used later.
 ```html
 <link rel="prefetch" href="image.png">
 ```
-  - Subresource: Download directly (high priority, whereas prefetch is low priority) a resource that will be discovered later in the page (such as `<script>` at the end)
+  - ~~Subresource (deprecated, not supported anymore): Download directly (high priority, whereas prefetch is low priority) a resource that will be discovered later in the page (such as `<script>` at the end)~~ Use preload.
 ```html
 <link rel="subresource" href="app.js">
 ```
