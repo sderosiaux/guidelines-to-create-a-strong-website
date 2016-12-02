@@ -314,6 +314,10 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
 ```html
 <link rel="preconnect" href="//fonts.googleapis.com">  
 ```
+  - Resource preload (high priority) Download a resource right now (into cache) if we know we'll need it. It supports media queries (for instance, if you want to preload an image that is available in 3 formats, according to the screen max-width)
+```html
+<link rel="preload" href="image.png" as="image" media="(min-width: 1024px)">
+```  
   - Resource Prefetch (low priority). Download a resource right now (into cache) if we know it's going to be used later.
 ```html
 <link rel="prefetch" href="image.png">
