@@ -53,6 +53,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
     - XSS https://en.wikipedia.org/wiki/Cross-site_scripting
     - XSSI http://stackoverflow.com/questions/8028511/what-is-cross-site-script-inclusion-xssi
     - Sql Injection https://en.wikipedia.org/wiki/SQL_injection
+  - Do not trust MIME-types: `X-Content-Type-Options: nosniff`. Some exploits exist that insert JS into MIME-types.
   - Protect the servers against brutefores attacks (add some kind of ban politics)
   - Use JSON Web Tokens https://jwt.io/ to talk to the server
   - Protect against DDOS if you need to, for instance using [Cloudflare](https://www.cloudflare.com/)
