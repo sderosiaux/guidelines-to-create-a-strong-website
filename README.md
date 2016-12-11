@@ -345,7 +345,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
   - Use `requestIdleCallback` when you want to process something not time critical https://developers.google.com/web/updates/2015/08/using-requestidlecallback
   - Avoir layout trashing (write/read DOM continuously). Batch. And simply let the frameworks (if available) update the DOM for you (with the Virtual DOM nowadays)
   - Gzip your resources
-  - Optimize your images and your SVGs https://jakearchibald.github.io/svgomg/ http://getoptimage.com/ (or using js pluggable things https://github.com/imagemin/imagemin)
+  - Optimize your images and your SVGs https://jakearchibald.github.io/svgomg/ http://getoptimage.com/ or https://imageoptim.com (or using js pluggable things https://github.com/imagemin/imagemin)
   - Use `async` and `defer` on your scripts when it's possible
   - To do something before unloading the page, use the navigator beacon to not block the closing https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon
   - Only import the necessary font families and weights
