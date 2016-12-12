@@ -240,6 +240,8 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
 <meta name="DC.Type" content="Text" >
 <meta name="DC.Title" content="My revolution" >
 ```
+  - Keep URLs short and meaningful
+  - Handle page errors (404, etc.) with some links inside, instead of dumping the classic raw default page
 
 ## Care about Apple ?
 
