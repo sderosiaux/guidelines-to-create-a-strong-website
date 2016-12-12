@@ -31,16 +31,16 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
     - get A+ on https://securityheaders.io/
     - **Content-Security-Policy**: define which hosts are allowed for the browser to download/send from/to (scripts, styles, images, iframes, forms..). `Content-Security-Policy: script-src 'self' https://apis.google.com; img-src 'self'`. All details here https://www.html5rocks.com/en/tutorials/security/content-security-policy/
     - **Content-Security-Policy-Report-Only**: when migrating an existing website to CSP, use this first just to get reports on CSP violations (the browser will still acts normal)
-    - (deprecated X-Webkit-CSP: old Chrome)
-    - (deprecated X-Content-Security-Policy: IE10, FF&lt;24)
+    - ~~X-Webkit-CSP (old Chrome)~~
+    - ~~X-Content-Security-Policy: IE10, FF&lt;24)~~
     - **Public-Key-Pins**: ensure the webclient has the right public keys, to avoid MITM attacks `public-key-pins-report-only:max-age=500; pin-sha256="WoiWRyIOVNa9ihaBciRSC7XHjliYS9VwUGOIud4PB18="; report-uri="http://example.com/hpkp/"`
     - **Public-Key-Pins-Report-Only**: Same as CSP-RO. At first, add this one to see if you get any error. Facebook is using this one for instance.
     - **Strict-Transport-Security**: specify to the browser to use only HTTPS for a period of time. The browser will automatically use https if it got the header before. `Strict-Transport-Security: max-age=63072000; includeSubDomains; preload` (2 years), and add it to the preload list of Chrome https://hstspreload.appspot.com and figure inside Chromium's source: https://cs.chromium.org/chromium/src/net/http/transport_security_state_static.json
     - **X-Content-Type-Options**: do not rely on files MIME types. (a .txt containing some .js, and there are even some exploits that insert JS into MIME-types!) `X-Content-Type-Options: nosniff`
     - **X-Frame-Options**: avoid your website to be embedded into an iframe, to just allow for same domain. `X-Frame-Options: deny`. For a finer control, CSP exist.
     - **X-XSS-Protection**: enable by default, the browser does not execute a js if it finds the same in the querystring. As CSP, a report url option exists: `X-XSS-Protection: 1; report=http://www.company.com/report`
-    - (deprecated X-Download-Options: IE8)
-    - X-Permitted-Cross-Domain-Policies
+    - ~~X-Download-Options: IE8~~
+    - **X-Permitted-Cross-Domain-Policies**: Restrict Adobe Flash Player's and Reader's access to data. `X-Permitted-Cross-Domain-Policies: none`
     - Access-Control-Allow-Origin
     - **Timing-Allow-Origin**: prevent browsers to access timing information through PerformanceResourceTiming (window.performance) for privacy reasons: `Timing-Allow-Origin: ` (no value)
     - Add CRI (Subresource Integrity) to your resources https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
@@ -55,6 +55,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
     - XSSI http://stackoverflow.com/questions/8028511/what-is-cross-site-script-inclusion-xssi
     - SQL Injection https://en.wikipedia.org/wiki/SQL_injection
   - Protect the servers against brutefores attacks (add some kind of ban politics)
+  - Remove the server signature from the response headers (`Server: Apache`, nginx etc.) and same for `X-Powered-By`.
   - Use JSON Web Tokens https://jwt.io/ to talk to the server
   - Protect against DDOS if you need to, for instance using [Cloudflare](https://www.cloudflare.com/)
   - Use `rel="noopener noreferrer"` for external links: `<a href="http://example.com" target="_blank" rel="noopener noreferrer">` (`noreferrer` is for firefox) to avoid a vulnerability.
