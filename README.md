@@ -41,7 +41,7 @@ Don't hesitate to PR and let's try to be concise. Other resources on the web go 
     - **X-XSS-Protection**: enable by default, the browser does not execute a js if it finds the same in the querystring. As CSP, a report url option exists: `X-XSS-Protection: 1; report=http://www.company.com/report`
     - ~~X-Download-Options: IE8~~
     - **X-Permitted-Cross-Domain-Policies**: Restrict Adobe Flash Player's and Reader's access to data. `X-Permitted-Cross-Domain-Policies: none`
-    - Access-Control-Allow-Origin
+    - **Access-Control-Allow-Origin**: Known as CORS. Control how a HTTP request is handled (accepted or rejected) if it's coming from another domain. Generally, an API adds the host(s) serving the UI in this header (only if on different domain ofc). Never use `Access-Control-Allow-Origin: *` except if you are reckless or don't care. Lots of details: https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
     - **Timing-Allow-Origin**: prevent browsers to access timing information through PerformanceResourceTiming (window.performance) for privacy reasons: `Timing-Allow-Origin: ` (no value)
     - Add CRI (Subresource Integrity) to your resources https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
 ```html
