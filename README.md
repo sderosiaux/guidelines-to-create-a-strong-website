@@ -407,6 +407,7 @@ ga('send', 'pageview');
 ```
   - Alternatives: https://amplitude.com/ https://mixpanel.com/ http://gaug.es/ https://piwik.org/
   - You have a bunch of tags ? Use Google Tag Manager.
+  - You can also (or) add a Facebook Pixel to get stats, events.. and even target Facebook users afterwards. (if they visited your pixel) https://www.facebook.com/ads/manager/pixel/facebook_pixel/ 
  
 ## Care about bugs ?
 
