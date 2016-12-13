@@ -1,10 +1,17 @@
-# How to make a good website
+# Guidelines to create a strong website
 
-Here you'll find out all the things I could think of to create a good website.
+Here you'll find out all the things I could think of and find out, to create a "good" website.
+
 From security, to performance, social sharing, analytics etc. I'm trying to not forget anything.
-This list will grow up over time.
+This is not about which framework to use, but about everything that makes a "good" website in general: secured, performant, social compliant, SEO compliant, offline ready, and more.
 
-Don't hesitate to PR and let's try to be concise. Other resources on the web go further in details for each topic, let's keep them one-liner here with a sample code when available.
+This list is growing over time.
+
+# Know more ?
+
+Don't hesitate to PR! Let's try to be concise: other resources on the web go further in details for each topic, let's keep them one-liner here with a sample code when necessary.
+
+# Summary
 
 - [Care about security ?](#care-about-security-)
 - [Care about social ?](#care-about-social-)
