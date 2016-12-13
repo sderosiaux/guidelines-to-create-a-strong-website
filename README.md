@@ -7,7 +7,7 @@ This is not about which framework to use, but about everything that makes a "goo
 
 This list is growing over time.
 
-# Know more ?
+## Know more ?
 
 Don't hesitate to PR! Let's try to be concise: other resources on the web go further in details for each topic, let's keep them one-liner here with a sample code when necessary.
 
