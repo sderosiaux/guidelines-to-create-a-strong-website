@@ -11,6 +11,8 @@ This list is growing over time.
 
 Don't hesitate to PR! Let's try to be concise: other resources on the web go further in details for each topic, let's keep them one-liner here with a sample code when necessary.
 
+![Only hundreds of things to do](73873677.jpg)
+
 # Summary
 
 - [Care about security ?](#care-about-security-)
