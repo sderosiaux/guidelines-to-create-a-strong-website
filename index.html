@@ -13,15 +13,15 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>How-to-make-a-good-website by chtefi</title>
+    <title>Guidelines to create a strong website by chtefi</title>
   </head>
 
   <body>
     <header>
       <div class="inner">
-        <h1>How-to-make-a-good-website</h1>
+        <h1>Guidelines to create a strong website</h1>
         <h2>A list of all things to consider when making a website or webapp of quality.</h2>
-        <a href="https://github.com/chtefi/how-to-make-a-good-website" class="button"><small>View project on</small> GitHub</a>
+        <a href="https://github.com/chtefi/guidelines-to-create-a-strong-website" class="button"><small>View project on</small> GitHub</a>
       </div>
     </header>
 
@@ -29,13 +29,22 @@
       <div class="inner clearfix">
         <section id="main-content">
           <h1>
-<a id="how-to-make-a-good-website" class="anchor" href="#how-to-make-a-good-website" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to make a good website</h1>
+<a id="guidelines-to-create-a-strong-website" class="anchor" href="#guidelines-to-create-a-strong-website" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Guidelines to create a strong website</h1>
 
-<p>Here you'll find out all the things I could think of to create a good website.
-From security, to performance, social sharing, analytics etc. I'm trying to not forget anything.
-This list will grow up over time.</p>
+<p>Here you'll find out all the things I could think of and find out, to create a "good" website.</p>
 
-<p>Don't hesitate to PR and let's try to be concise. Other resources on the web go further in details for each topic, let's keep them one-liner here with a sample code when available.</p>
+<p>From security, to performance, social sharing, analytics etc. I'm trying to not forget anything.
+This is not about which framework to use, but about everything that makes a "good" website in general: secured, performant, social compliant, SEO compliant, offline ready, and more.</p>
+
+<p>This list is growing over time.</p>
+
+<h2>
+<a id="know-more-" class="anchor" href="#know-more-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Know more ?</h2>
+
+<p>Don't hesitate to PR! Let's try to be concise: other resources on the web go further in details for each topic, let's keep them one-liner here with a sample code when necessary.</p>
+
+<h1>
+<a id="summary" class="anchor" href="#summary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Summary</h1>
 
 <ul>
 <li><a href="#care-about-security-">Care about security ?</a></li>
@@ -78,8 +87,8 @@ This list will grow up over time.</p>
 </li>
 <li>
 <strong>Content-Security-Policy-Report-Only</strong>: when migrating an existing website to CSP, use this first just to get reports on CSP violations (the browser will still acts normal)</li>
-<li>(deprecated X-Webkit-CSP: old Chrome)</li>
-<li>(deprecated X-Content-Security-Policy: IE10, FF&lt;24)</li>
+<li><del>X-Webkit-CSP (old Chrome)</del></li>
+<li><del>X-Content-Security-Policy: IE10, FF&lt;24)</del></li>
 <li>
 <strong>Public-Key-Pins</strong>: ensure the webclient has the right public keys, to avoid MITM attacks <code>public-key-pins-report-only:max-age=500; pin-sha256="WoiWRyIOVNa9ihaBciRSC7XHjliYS9VwUGOIud4PB18="; report-uri="http://example.com/hpkp/"</code>
 </li>
@@ -88,12 +97,23 @@ This list will grow up over time.</p>
 <li>
 <strong>Strict-Transport-Security</strong>: specify to the browser to use only HTTPS for a period of time. The browser will automatically use https if it got the header before. <code>Strict-Transport-Security: max-age=63072000; includeSubDomains; preload</code> (2 years), and add it to the preload list of Chrome <a href="https://hstspreload.appspot.com">https://hstspreload.appspot.com</a> and figure inside Chromium's source: <a href="https://cs.chromium.org/chromium/src/net/http/transport_security_state_static.json">https://cs.chromium.org/chromium/src/net/http/transport_security_state_static.json</a>
 </li>
-<li>X-Content-Type-Options</li>
-<li>X-Frame-Options</li>
-<li>X-Xss-Protection</li>
-<li>(deprecated X-Download-Options: IE8)</li>
-<li>X-Permitted-Cross-Domain-Policies</li>
-<li>Access-Control-Allow-Origin</li>
+<li>
+<strong>X-Content-Type-Options</strong>: do not rely on files MIME types. (a .txt containing some .js, and there are even some exploits that insert JS into MIME-types!) <code>X-Content-Type-Options: nosniff</code>
+</li>
+<li>
+<strong>X-Frame-Options</strong>: avoid your website to be embedded into an iframe, to just allow for same domain. <code>X-Frame-Options: deny</code>. For a finer control, CSP exist.</li>
+<li>
+<strong>X-XSS-Protection</strong>: enable by default, the browser does not execute a js if it finds the same in the querystring. As CSP, a report url option exists: <code>X-XSS-Protection: 1; report=http://www.company.com/report</code>
+</li>
+<li><del>X-Download-Options: IE8</del></li>
+<li>
+<strong>X-Permitted-Cross-Domain-Policies</strong>: Restrict Adobe Flash Player's and Reader's access to data. <code>X-Permitted-Cross-Domain-Policies: none</code>
+</li>
+<li>
+<strong>Access-Control-Allow-Origin</strong>: Known as CORS. Control how a HTTP request is handled (accepted or rejected) if it's coming from another domain. Generally, an API adds the host(s) serving the UI in this header (only if on different domain ofc). Never use <code>Access-Control-Allow-Origin: *</code> except if you are reckless or don't care. Lots of details: <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS</a>
+</li>
+<li>
+<strong>Timing-Allow-Origin</strong>: prevent browsers to access timing information through PerformanceResourceTiming (window.performance) for privacy reasons: <code>Timing-Allow-Origin:</code> (no value)</li>
 <li>Add CRI (Subresource Integrity) to your resources <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity">https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity</a>
 </li>
 </ul>
@@ -114,11 +134,12 @@ This list will grow up over time.</p>
 </li>
 <li>XSSI <a href="http://stackoverflow.com/questions/8028511/what-is-cross-site-script-inclusion-xssi">http://stackoverflow.com/questions/8028511/what-is-cross-site-script-inclusion-xssi</a>
 </li>
-<li>Sql Injection <a href="https://en.wikipedia.org/wiki/SQL_injection">https://en.wikipedia.org/wiki/SQL_injection</a>
+<li>SQL Injection <a href="https://en.wikipedia.org/wiki/SQL_injection">https://en.wikipedia.org/wiki/SQL_injection</a>
 </li>
 </ul>
 </li>
 <li>Protect the servers against brutefores attacks (add some kind of ban politics)</li>
+<li>Remove the server signature from the response headers (<code>Server: Apache</code>, nginx etc.) and same for <code>X-Powered-By</code>.</li>
 <li>Use JSON Web Tokens <a href="https://jwt.io/">https://jwt.io/</a> to talk to the server</li>
 <li>Protect against DDOS if you need to, for instance using <a href="https://www.cloudflare.com/">Cloudflare</a>
 </li>
@@ -126,6 +147,8 @@ This list will grow up over time.</p>
 <li>Identify frauds before they happen with Smyte (a js tag to add) <a href="https://www.smyte.com/">https://www.smyte.com/</a>
 </li>
 <li>For registration pages, put a captcha. <a href="https://www.google.com/recaptcha/intro/index.html">https://www.google.com/recaptcha/intro/index.html</a>
+</li>
+<li>Note that if your website is https, and links to http websites, they won't get the referrer (bad for analytics). The meta "referrer" lets you control when to send it bypassing this restriction: <code>&lt;meta name="referrer" content="origin-when-cross-origin"&gt;</code>
 </li>
 </ul>
 
@@ -191,6 +214,18 @@ This list will grow up over time.</p>
 </ul>
 
 <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>alternate<span class="pl-pds">"</span></span> <span class="pl-e">hreflang</span>=<span class="pl-s"><span class="pl-pds">"</span>es<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>http://es.example.com/<span class="pl-pds">"</span></span> /&gt;</pre></div>
+
+<ul>
+<li>If your website publishes news:
+
+<ul>
+<li>you can use <code>&lt;meta name="news_keywords" content="football, world cup" /&gt;</code> to help Google News to reference you <a href="https://support.google.com/news/publisher/answer/68297?hl=en">https://support.google.com/news/publisher/answer/68297?hl=en</a>
+</li>
+<li>you can use <code>&lt;meta name="syndication-source" content="http://example.com/my_news" /&gt;</code> if you are the original creator of the news, to indicate you are the original source.</li>
+<li>it exists also a meta <code>original-source</code> to reference the sources you reference in your article</li>
+</ul>
+</li>
+</ul>
 
 <h2>
 <a id="care-about-communication-" class="anchor" href="#care-about-communication-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Care about communication ?</h2>
@@ -369,6 +404,11 @@ This list will grow up over time.</p>
 &lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>DC.Type<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>Text<span class="pl-pds">"</span></span> &gt;
 &lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>DC.Title<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>My revolution<span class="pl-pds">"</span></span> &gt;</pre></div>
 
+<ul>
+<li>Keep URLs short and meaningful</li>
+<li>Handle page errors (404, etc.) with some links inside, instead of dumping the classic raw default page</li>
+</ul>
+
 <h2>
 <a id="care-about-apple-" class="anchor" href="#care-about-apple-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Care about Apple ?</h2>
 
@@ -470,6 +510,8 @@ This list will grow up over time.</p>
 </li>
 <li>Web Animations API (<code>document.querySelector('.pulse').animate({...})</code>): <a href="https://github.com/web-animations/web-animations-js">https://github.com/web-animations/web-animations-js</a> <a href="https://github.com/web-animations/web-animations-js"><img src="https://img.shields.io/github/stars/web-animations/web-animations-js.svg?style=social&amp;label=Star" alt="GitHub stars"></a>
 </li>
+<li>You can also not bundle them and let the browser download what's needed with <a href="https://qa.polyfill.io/v2/docs/examples">https://qa.polyfill.io/v2/docs/examples</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -492,13 +534,20 @@ This list will grow up over time.</p>
 <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>preconnect<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>//fonts.googleapis.com<span class="pl-pds">"</span></span>&gt;  </pre></div>
 
 <ul>
-<li>Resource Prefetch (low priority). Download a resource right now (into cache) if we know it's going to be used later.</li>
+<li>Resource preload (high priority) Download a resource right now (into cache) if we know we'll need it. It supports media queries (for instance, if you want to preload an image that is available in 3 formats, according to the screen max-width)</li>
+</ul>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>preload<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>image.png<span class="pl-pds">"</span></span> <span class="pl-e">as</span>=<span class="pl-s"><span class="pl-pds">"</span>image<span class="pl-pds">"</span></span> <span class="pl-e">media</span>=<span class="pl-s"><span class="pl-pds">"</span>(min-width: 1024px)<span class="pl-pds">"</span></span>&gt;</pre></div>
+
+<ul>
+<li>Resource Prefetch (low priority). Download a resource (into the cache) when the browser will have time, if we know it's going to be used later.</li>
 </ul>
 
 <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>prefetch<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>image.png<span class="pl-pds">"</span></span>&gt;</pre></div>
 
 <ul>
-<li>Subresource: Download directly (high priority, whereas prefetch is low priority) a resource that will be discovered later in the page (such as <code>&lt;script&gt;</code> at the end)</li>
+<li>
+<del>Subresource (deprecated, not supported anymore): Download directly (high priority, whereas prefetch is low priority) a resource that will be discovered later in the page (such as <code>&lt;script&gt;</code> at the end)</del> Use preload.</li>
 </ul>
 
 <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>subresource<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>app.js<span class="pl-pds">"</span></span>&gt;</pre></div>
@@ -511,13 +560,14 @@ This list will grow up over time.</p>
 
 <ul>
 <li>
-<code>defer</code> or <code>async</code> your <code>&lt;script&gt;</code> if possible</li>
+<code>defer</code> (if the script rely on DOM) or <code>async</code> (totally independant) your <code>&lt;script&gt;</code>s if possible</li>
 <li>Think about the critical css path. Inject it in the <code>&lt;head&gt;</code> directly</li>
 <li>Move non critical stylesheets outside of the <code>&lt;head&gt;</code> (it blocks the first paint otherwise)</li>
 <li>Shrink your js/css bundles
 
 <ul>
 <li>Split the libs bundle(s) (rarely changed) from the app bundle(s)</li>
+<li>Analyze your js bundle, to be sure you are not bundling crap (using <a href="https://github.com/danvk/source-map-explorer%20for%20instance">source-map-explorer</a>)</li>
 </ul>
 </li>
 <li>Batch layout trashing using <a href="https://github.com/wilsonpage/fastdom">fastdom</a>
@@ -535,8 +585,7 @@ This list will grow up over time.</p>
 </li>
 <li>Avoir layout trashing (write/read DOM continuously). Batch. And simply let the frameworks (if available) update the DOM for you (with the Virtual DOM nowadays)</li>
 <li>Gzip your resources</li>
-<li>Optimize your images and your SVGs <a href="https://jakearchibald.github.io/svgomg/">https://jakearchibald.github.io/svgomg/</a>
-</li>
+<li>Optimize your images and your SVGs <a href="https://jakearchibald.github.io/svgomg/">https://jakearchibald.github.io/svgomg/</a> <a href="http://getoptimage.com/">http://getoptimage.com/</a> or <a href="https://imageoptim.com">https://imageoptim.com</a> (or using js pluggable things <a href="https://github.com/imagemin/imagemin">https://github.com/imagemin/imagemin</a>)</li>
 <li>Use <code>async</code> and <code>defer</code> on your scripts when it's possible</li>
 <li>To do something before unloading the page, use the navigator beacon to not block the closing <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon">https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon</a>
 </li>
@@ -621,18 +670,17 @@ This list will grow up over time.</p>
 &lt;<span class="pl-ent">script</span> <span class="pl-e">async</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">'</span>https://www.google-analytics.com/analytics.js<span class="pl-pds">'</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;  </pre></div>
 
 <ul>
-<li>You an try Amplitude too <a href="https://amplitude.com/%60">https://amplitude.com/`</a>
-</li>
-<li>Mixpanel is a good one too <a href="https://mixpanel.com/">https://mixpanel.com/</a>
+<li>Alternatives: <a href="https://amplitude.com/">https://amplitude.com/</a> <a href="https://mixpanel.com/">https://mixpanel.com/</a> <a href="http://gaug.es/">http://gaug.es/</a> <a href="https://piwik.org/">https://piwik.org/</a>
 </li>
 <li>You have a bunch of tags ? Use Google Tag Manager.</li>
+<li>You can also (or) add a Facebook Pixel to get stats, events.. and even target Facebook users afterwards. (if they visited your pixel) <a href="https://www.facebook.com/ads/manager/pixel/facebook_pixel/">https://www.facebook.com/ads/manager/pixel/facebook_pixel/</a> </li>
 </ul>
 
 <h2>
 <a id="care-about-bugs-" class="anchor" href="#care-about-bugs-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Care about bugs ?</h2>
 
 <ul>
-<li>Monitor browser's JS errors, for instance with <a href="https://trackjs.com">https://trackjs.com</a> or <a href="https://sentry.io/">https://sentry.io/</a>
+<li>Monitor browser's JS errors, for instance with <a href="https://trackjs.com">https://trackjs.com</a>, <a href="https://sentry.io/">https://sentry.io/</a>, or <a href="https://bugsnag.com/">https://bugsnag.com/</a>
 </li>
 <li>Check your Google Webmaster for crawl/sitemap/robots errors</li>
 </ul>
@@ -641,8 +689,7 @@ This list will grow up over time.</p>
 <a id="care-about-misc-" class="anchor" href="#care-about-misc-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Care about misc ?</h2>
 
 <ul>
-<li>If the website sets cookies to an EU visitor, you must display a notice <a href="https://www.cookielaw.org/the-cookie-law/">https://www.cookielaw.org/the-cookie-law/</a>
-</li>
+<li>If the website sets cookies to an EU visitor, you must display a notice <a href="https://www.cookielaw.org/the-cookie-law/">https://www.cookielaw.org/the-cookie-law/</a>. You can use <a href="https://silktide.com/tools/cookie-consent/">https://silktide.com/tools/cookie-consent/</a> to make it nice!</li>
 <li>Add a legal mentions page</li>
 <li>Add Google notranslate to avoid Google to display the translation bar when you know it's not needed</li>
 </ul>
@@ -655,20 +702,22 @@ This list will grow up over time.</p>
 <li>Use a clear and proper wording in your website. Check this out: <a href="https://uxplanet.org/effective-writing-for-your-ui-things-to-avoid-f6084e94e009">https://uxplanet.org/effective-writing-for-your-ui-things-to-avoid-f6084e94e009</a><br>
 </li>
 <li>Consider having a way for users to send you some feedbacks. I would recommend something like <a href="https://doorbell.io/">https://doorbell.io/</a>. A feedback widget easy to integrate.</li>
+<li>Consider having a status page status.mywebsite.com to expose your services health using <a href="https://www.statuspage.io/">https://www.statuspage.io/</a>
+</li>
 </ul>
         </section>
 
         <aside id="sidebar">
-          <a href="https://github.com/chtefi/how-to-make-a-good-website/zipball/master" class="button">
+          <a href="https://github.com/chtefi/guidelines-to-create-a-strong-website/zipball/master" class="button">
             <small>Download</small>
             .zip file
           </a>
-          <a href="https://github.com/chtefi/how-to-make-a-good-website/tarball/master" class="button">
+          <a href="https://github.com/chtefi/guidelines-to-create-a-strong-website/tarball/master" class="button">
             <small>Download</small>
             .tar.gz file
           </a>
 
-          <p class="repo-owner"><a href="https://github.com/chtefi/how-to-make-a-good-website"></a> is maintained by <a href="https://github.com/chtefi">chtefi</a>.</p>
+          <p class="repo-owner"><a href="https://github.com/chtefi/guidelines-to-create-a-strong-website"></a> is maintained by <a href="https://github.com/chtefi">chtefi</a>.</p>
 
           <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
         </aside>
