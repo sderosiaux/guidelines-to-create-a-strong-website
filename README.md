@@ -65,6 +65,7 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
     - SQL Injection https://en.wikipedia.org/wiki/SQL_injection
   - Protect the servers against brutefores attacks (add some kind of ban politics)
   - Remove the server signature from the response headers (`Server: Apache`, nginx etc.) and same for `X-Powered-By`.
+  - Optimize your responses `Set-Cookie` by setting them `httpOnly` if  you don't need them in Javascript (only in the server), `secure` if you deal only with HTTPS.
   - Use JSON Web Tokens https://jwt.io/ to talk to the server
   - Protect against DDOS if you need to, for instance using [Cloudflare](https://www.cloudflare.com/)
   - Use `rel="noopener noreferrer"` for external links: `<a href="http://example.com" target="_blank" rel="noopener noreferrer">` (`noreferrer` is for firefox) to avoid a vulnerability.
