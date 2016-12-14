@@ -232,6 +232,10 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
 ```html
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://www.example.com/wlwmanifest.xml" />
 ```
+  - Tasks in Windows jump lists (https://msdn.microsoft.com/en-us/library/gg491725(v=vs.85).aspx)
+```html
+<meta name="msapplication-task" content="name=Example: home;action-uri=http://www.example.com/home;icon-uri=http://www.example.com/favicon.ico">
+```
   - OpenSearch
 ```html
 <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="...">
