@@ -398,6 +398,7 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
 }
 ```
   - Use AMP https://www.ampproject.org/. It adds constraints and tons of tricks to get über-fast pages.
+  - Check if your website is mobile friendly: https://search.google.com/search-console/mobile-friendly?hl=en-US
 
 ## Care about offline ?
 
