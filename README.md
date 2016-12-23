@@ -188,9 +188,9 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
 ```html
 <link rel="sitemap" type="application/xml" title="Sitemap" href="{{ SITEMAP_URL }}" />
 ```
-  - Favicons/Tiles (+ Apple/Windows variations) 
+  - Favicons/Tiles (+ Apple/Windows variations) (can use http://realfavicongenerator.net/ to generate them)
 ```html
-<!-- The classic one -->
+<!-- The classic one; ico or png -->
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
 <!-- Used by http://fluidapp.com/ (website to native app on Mac) -->
