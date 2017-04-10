@@ -249,11 +249,11 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
 <link rel="profile" href="http://gmpg.org/xfn/11" />
 ```
   - Dublin Core Metadata (not sure if used?) https://en.wikipedia.org/wiki/Dublin_Core
-````html
+```html
 <meta name="DC.Format" content="text/html">
-<meta name="DC.Language" content="en" >
-<meta name="DC.Type" content="Text" >
-<meta name="DC.Title" content="My revolution" >
+<meta name="DC.Language" content="en">
+<meta name="DC.Type" content="Text">
+<meta name="DC.Title" content="My revolution">
 ```
   - Keep URLs short and meaningful
   - Handle page errors (404, etc.) with some links inside, instead of dumping the classic raw default page
