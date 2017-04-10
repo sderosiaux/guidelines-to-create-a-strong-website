@@ -302,7 +302,7 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
 ## Care about legacy ?
 
   - Add X-UA-Compatible
-````html
+```html
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 ```
   - If you uses specific features, you can use `@supports` if css only, or https://modernizr.com/ to detect if a feature is available and can fallback.
