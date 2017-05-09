@@ -60,6 +60,7 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
 ```
   - Protect again exploits
     - CSRF/XSRF https://en.wikipedia.org/wiki/Cross-site_request_forgery
+    - JSON Hijacking http://stackoverflow.com/questions/2669690/why-does-google-prepend-while1-to-their-json-responses GET requests that respond with a JSON array can be leaked.
     - XSS https://en.wikipedia.org/wiki/Cross-site_scripting
     - XSSI http://stackoverflow.com/questions/8028511/what-is-cross-site-script-inclusion-xssi
     - SQL Injection https://en.wikipedia.org/wiki/SQL_injection
