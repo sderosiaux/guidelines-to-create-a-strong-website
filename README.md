@@ -30,6 +30,7 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
 - [Care about analytics ?](#care-about-analytics-)
 - [Care about bugs ?](#care-about-bugs-)
 - [Care about misc ?](#care-about-misc-)
+- [More tips](#more-tips)
 
 ## Care about security ?
 
@@ -444,5 +445,10 @@ ga('send', 'pageview');
   - Use a clear and proper wording in your website. Check this out: https://uxplanet.org/effective-writing-for-your-ui-things-to-avoid-f6084e94e009  
   - Consider having a way for users to send you some feedbacks. I would recommend something like https://doorbell.io/. A feedback widget easy to integrate.
   - Consider having a status page status.mywebsite.com to expose your services health using https://www.statuspage.io/
-  
+
+
+# More tips
+
+https://www.awesomeweb.com/blog/make-website-awesome
+
 
