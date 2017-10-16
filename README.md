@@ -286,6 +286,7 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
 ## Care about privacy ?
 
   - Add Do Not Track (DNT) header: opt-out of third-party tracking for purposes including behavioral advertising https://en.wikipedia.org/wiki/Do_Not_Track `DNT: 1`
+  - Respect DNT and expose the file .well-known/dnt-policy.txt to say it (check https://www.eff.org/dnt-policy)
 
 ## Care about style ?
 
