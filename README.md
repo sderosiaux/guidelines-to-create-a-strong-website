@@ -381,6 +381,7 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
   - Check your performances and best practices with Lighthouse: https://github.com/GoogleChrome/lighthouse [![GitHub stars](https://img.shields.io/github/stars/GoogleChrome/lighthouse.svg?style=social&label=Star)](https://github.com/GoogleChrome/lighthouse) (test if you app can be considered as "progressive")
   - Analyze what changes in the DOM with Chrome extensions such as DOMListener and http://google.github.io/tracing-framework/ if you want the best!
   - Evaluate your bloat score http://www.webbloatscore.com/
+  - Async image processing to get better responsiveness `<img decoding=async src="...">` ([proposal](https://groups.google.com/a/chromium.org/forum/#!msg/blink-dev/MbXp16hQclY/bQjegyrbAgAJ))
   
 ## Care about mobile ?
 
