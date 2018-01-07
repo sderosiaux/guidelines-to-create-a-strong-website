@@ -39,7 +39,7 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
     - check more with https://certlogik.com/ssl-checker/
   - Add all security headers
     - get A+ on https://securityheaders.io/
-    - **Content-Security-Policy**: define which hosts are allowed for the browser to download/send from/to (scripts, styles, images, iframes, forms..). `Content-Security-Policy: script-src 'self' https://apis.google.com; img-src 'self'`. All details here https://www.html5rocks.com/en/tutorials/security/content-security-policy/
+    - **Content-Security-Policy**: define which hosts are allowed for the browser to download/send from/to (scripts, styles, images, iframes, forms..). `Content-Security-Policy: script-src 'self' https://apis.google.com; img-src 'self'`. All details here https://www.html5rocks.com/en/tutorials/security/content-security-policy/. A very interesting piece to read: [https://hackernoon.com/im-harvesting-credit-card-numbers-and-passwords-from-your-site-here-s-how-9a8cb347c5b5](https://hackernoon.com/im-harvesting-credit-card-numbers-and-passwords-from-your-site-here-s-how-9a8cb347c5b5) (look for "Content Security Policy") about CSP tricks and escapes.
     - **Content-Security-Policy-Report-Only**: when migrating an existing website to CSP, use this first just to get reports on CSP violations (the browser will still acts normal)
     - ~~X-Webkit-CSP (old Chrome)~~
     - ~~X-Content-Security-Policy: IE10, FF&lt;24)~~
