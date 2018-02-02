@@ -74,6 +74,7 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
   - Identify frauds before they happen with Smyte (a js tag to add) https://www.smyte.com/
   - For registration pages, put a captcha. https://www.google.com/recaptcha/intro/index.html
   - Note that if your website is https, and links to http websites, they won't get the referrer (bad for analytics). The meta "referrer" lets you control when to send it bypassing this restriction: `<meta name="referrer" content="origin-when-cross-origin">`
+  - Define a security policy and email adress in `/.well-known/security.txt`. See https://securitytxt.org/ for details.
 
 ## Care about social ?
 
