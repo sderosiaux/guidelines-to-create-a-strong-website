@@ -453,6 +453,7 @@ ga('send', 'pageview');
 
 # More tips
 
+https://developers.google.com/speed/docs/insights/rules
 https://www.awesomeweb.com/blog/make-website-awesome
 
 
