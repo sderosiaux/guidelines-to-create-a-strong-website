@@ -393,7 +393,13 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
   - Analyze what changes in the DOM with Chrome extensions such as DOMListener and http://google.github.io/tracing-framework/ if you want the best!
   - Evaluate your bloat score http://www.webbloatscore.com/
   - Async image processing to get better responsiveness `<img decoding=async src="...">` ([proposal](https://groups.google.com/a/chromium.org/forum/#!msg/blink-dev/MbXp16hQclY/bQjegyrbAgAJ))
-  
+  - Load lazily your resources
+```js
+// js modules here (or dynamic imports, à la webpack)
+const module = await import('more.mjs')
+module.something()
+```
+	
 ## Care about mobile ?
 
   - Add a manifest to know how to display it on the home screen https://developer.mozilla.org/en-US/docs/Web/Manifest
