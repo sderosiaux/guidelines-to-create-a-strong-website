@@ -324,6 +324,11 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
     - all es6 and es7 features: https://github.com/zloirock/core-js [![GitHub stars](https://img.shields.io/github/stars/zloirock/core-js.svg?style=social&label=Star)](https://github.com/zloirock/core-js)
     - Web Animations API (`document.querySelector('.pulse').animate({...})`): https://github.com/web-animations/web-animations-js [![GitHub stars](https://img.shields.io/github/stars/web-animations/web-animations-js.svg?style=social&label=Star)](https://github.com/web-animations/web-animations-js)
     - You can also not bundle them and let the browser download what's needed with https://qa.polyfill.io/v2/docs/examples
+  - Handle modules and fallback to non modules
+```html
+<script type="module" src="main.mjs"></script>
+<script nomodule type="javascript" src="fallback.js"></script>
+```  
 
 ## Care about performance ?
 
@@ -340,6 +345,10 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
   - Resource preload (high priority) Download a resource right now (into cache) if we know we'll need it. It supports media queries (for instance, if you want to preload an image that is available in 3 formats, according to the screen max-width)
 ```html
 <link rel="preload" href="image.png" as="image" media="(min-width: 1024px)">
+```  
+  - Module preload (mjs)
+```html
+<link rel="modulepreload" href="lib.mjs">
 ```  
   - Resource Prefetch (low priority). Download a resource (into the cache) when the browser will have time, if we know it's going to be used later.
 ```html
