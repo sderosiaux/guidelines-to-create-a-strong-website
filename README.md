@@ -284,6 +284,7 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
     - Use `alt` on images, `label` on forms controls labels    
   - Read the "Web Content Accessibility Guidelines" ([WCAG](https://www.w3.org/TR/WCAG/))
   - Ensure the color contrast you are using is fine: http://leaverou.github.io/contrast-ratio/    
+  - If using jsx, add this ESLint plugin to enforce them: https://github.com/evcohen/eslint-plugin-jsx-a11y
   
 ## Care about privacy ?
 
