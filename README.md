@@ -76,7 +76,8 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
   - Note that if your website is https, and links to http websites, they won't get the referrer (bad for analytics). The meta "referrer" lets you control when to send it bypassing this restriction: `<meta name="referrer" content="origin-when-cross-origin">`. [Referrer Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy).
   - Define a security policy and email adress in `/.well-known/security.txt`. See https://securitytxt.org/ for details.
   - Handle standard addresses: security@, admin@, webmaster@, support@, postmaster@, hostmaster@
-
+  - If using `npm`, use `npm audit` to ensure you don't depend on unsecured packages
+  
 ## Care about social ?
 
  - Facebook https://developers.facebook.com/docs/reference/opengraph/ http://stackoverflow.com/questions/10836135/when-do-i-need-a-fbapp-id-or-fbadmins
