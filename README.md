@@ -401,7 +401,8 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
 const module = await import('more.mjs')
 module.something()
 ```
-	
+  - [Prepack](https://github.com/facebook/prepack) your things (be aware of caveats https://gist.github.com/gaearon/d85dccba72b809f56a9553972e5c33c4)
+  
 ## Care about mobile ?
 
   - Add a manifest to know how to display it on the home screen https://developer.mozilla.org/en-US/docs/Web/Manifest
