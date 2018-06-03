@@ -275,6 +275,7 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
 
 ## Care about accessibility (a11y) ?
 
+  - Think of the colorblind people ffs! https://www.smashingmagazine.com/2016/06/improving-color-accessibility-for-color-blind-users/
   - Read http://www.bbc.co.uk/gel/guidelines/how-to-design-for-accessibility to get a global why we should care
   - Check the posters in https://github.com/UKHomeOffice/posters/tree/master/accessibility to get more clear headlines
   - Audit your website: https://github.com/addyosmani/a11y [![GitHub stars](https://img.shields.io/github/stars/addyosmani/a11y.svg?style=social&label=Star)](https://github.com/addyosmani/a11y)
@@ -370,7 +371,8 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
   - Shrink your js/css bundles
     - Split the libs bundle(s) (rarely changed) from the app bundle(s)
     - Analyze your js bundle, to be sure you are not bundling crap (using [source-map-explorer](https://github.com/danvk/source-map-explorer for instance))
-  - Batch layout trashing using [fastdom](https://github.com/wilsonpage/fastdom)
+    - Lazy load modules that aren't on the critical path
+  - Batch layout trashing using [fastdom](https://github.com/wilsonpage/fastdom) if not using a framework that does it for you
   - Load unnecessary modules after the initial rendering
   - Delay if not in the viewport at first sight
     - Load images lazily
@@ -378,7 +380,8 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
   - Use `requestIdleCallback` when you want to process something not time critical https://developers.google.com/web/updates/2015/08/using-requestidlecallback
   - Avoir layout trashing (write/read DOM continuously). Batch. And simply let the frameworks (if available) update the DOM for you (with the Virtual DOM nowadays)
   - Gzip your resources
-  - Optimize your images and your SVGs https://jakearchibald.github.io/svgomg/ http://getoptimage.com/ or https://imageoptim.com (or using js pluggable things https://github.com/imagemin/imagemin). More recently: Guetzli seems the best for jpgs: https://github.com/google/guetzli
+  - Read https://images.guide/
+  - Optimize your images and your SVGs. https://jakearchibald.github.io/svgomg/ http://getoptimage.com/ or https://imageoptim.com (or using js pluggable things https://github.com/imagemin/imagemin). More recently: Guetzli seems the best for jpgs: https://github.com/google/guetzli.
   - Use `async` and `defer` on your scripts when it's possible
   - To do something before unloading the page, use the navigator beacon to not block the closing https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon
   - Only import the necessary font families and weights
