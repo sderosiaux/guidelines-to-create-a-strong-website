@@ -7,7 +7,7 @@ This is not about which framework to use, but about everything that makes a "goo
 
 This list is growing over time.
 
-## Know more ?
+## You know more ?
 
 Don't hesitate to PR! Let's try to be concise: other resources on the web go further in details for each topic, let's keep them one-liner here with a sample code when necessary.
 
@@ -53,6 +53,7 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
     - **X-Permitted-Cross-Domain-Policies**: Restrict Adobe Flash Player's and Reader's access to data. `X-Permitted-Cross-Domain-Policies: none`
     - **Access-Control-Allow-Origin**: Known as CORS. Control how a HTTP request is handled (accepted or rejected) if it's coming from another domain. Generally, an API adds the host(s) serving the UI in this header (only if on different domain ofc). Never use `Access-Control-Allow-Origin: *` except if you are reckless or don't care. Lots of details: https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS
     - **Timing-Allow-Origin**: prevent browsers to access timing information through PerformanceResourceTiming (window.performance) for privacy reasons: `Timing-Allow-Origin: ` (no value)
+    - Observe [CORB](https://fetch.spec.whatwg.org/#corb) impact
     - Add CRI (Subresource Integrity) to your resources https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
 ```html
 <script src="framework.js"
