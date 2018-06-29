@@ -96,6 +96,7 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
 <meta name="twitter:creator" content="{{ TWITTER_CREATOR_ACCOUNT }}"/>
 <meta name="twitter:domain" content="mon.site.com"/>
 ```
+  - Check with https://developers.facebook.com/tools/debug/sharing/ and https://cards-dev.twitter.com/validator
   - Google Plus
   - Add the Sharing, Like, +1 buttons
     - Facebook https://developers.facebook.com/docs/plugins
