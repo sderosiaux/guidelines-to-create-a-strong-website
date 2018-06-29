@@ -107,6 +107,9 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
 
   - Use HTTPS
   - Isomorphic/Universal Javascript (prerendering page)
+  - Add share & like buttons
+  - Take care of the name of your images and `alt`
+  - Add a `sitemap.xml`
   - Define the crawlers politic. Define the file `robots.txt`, or you can add a meta:
 ```html
 <meta name="robots" content="index,follow" />
