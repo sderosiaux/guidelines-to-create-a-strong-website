@@ -340,6 +340,7 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
 
 ## Care about performance ?
 
+  - Test with https://web.dev/measure
   - Use HTTP/2
   - Define a performance budget (overall, js, images, time to interactive, first paint..) and improve it over time (you can't deploy something out of the budget)	
   - DNS Prefetch to resolve DNS asap (for future pages)
