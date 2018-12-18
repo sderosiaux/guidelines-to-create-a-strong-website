@@ -66,7 +66,7 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
     - XSS https://en.wikipedia.org/wiki/Cross-site_scripting
     - XSSI http://stackoverflow.com/questions/8028511/what-is-cross-site-script-inclusion-xssi
     - SQL Injection https://en.wikipedia.org/wiki/SQL_injection
-  - Protect the servers against bruteforce attacks (add some kind of ban politics)
+  - Protect the servers against brute-force attacks (add some kind of ban politics)
   - Remove the server signature from the response headers (`Server: Apache`, nginx etc.) and same for `X-Powered-By`.
   - Optimize your responses `Set-Cookie` by setting them `httpOnly` if  you don't need them in Javascript (only in the server), `secure` if you deal only with HTTPS.
   - Use JSON Web Tokens https://jwt.io/ to talk to the server
