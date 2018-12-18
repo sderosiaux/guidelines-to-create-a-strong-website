@@ -60,13 +60,13 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
         integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"
         crossorigin="anonymous"></script>
 ```
-  - Protect again exploits
+  - Protect against exploits
     - CSRF/XSRF https://en.wikipedia.org/wiki/Cross-site_request_forgery
     - JSON Hijacking http://stackoverflow.com/questions/2669690/why-does-google-prepend-while1-to-their-json-responses GET requests that respond with a JSON array can be leaked.
     - XSS https://en.wikipedia.org/wiki/Cross-site_scripting
     - XSSI http://stackoverflow.com/questions/8028511/what-is-cross-site-script-inclusion-xssi
     - SQL Injection https://en.wikipedia.org/wiki/SQL_injection
-  - Protect the servers against brutefores attacks (add some kind of ban politics)
+  - Protect the servers against bruteforce attacks (add some kind of ban politics)
   - Remove the server signature from the response headers (`Server: Apache`, nginx etc.) and same for `X-Powered-By`.
   - Optimize your responses `Set-Cookie` by setting them `httpOnly` if  you don't need them in Javascript (only in the server), `secure` if you deal only with HTTPS.
   - Use JSON Web Tokens https://jwt.io/ to talk to the server
