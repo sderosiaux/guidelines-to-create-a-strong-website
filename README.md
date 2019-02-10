@@ -364,6 +364,7 @@ Don't hesitate to PR! Let's try to be concise: other resources on the web go fur
 ```html
 <link rel="prefetch" href="image.png">
 ```
+  - Add https://instant.page/ to preload pages when the user hovers a link
   - ~~Subresource (deprecated, not supported anymore): Download directly (high priority, whereas prefetch is low priority) a resource that will be discovered later in the page (such as `<script>` at the end)~~ Use preload.
 ```html
 <link rel="subresource" href="app.js">
